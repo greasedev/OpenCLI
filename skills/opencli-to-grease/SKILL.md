@@ -584,3 +584,17 @@ grep -l '"match": true' clis/bilibili/*.test | wc -l
 | networkidle timeout | Change waitUntil to `load` |
 | API returns -403 | Check if API needs different auth or use simpler endpoint |
 | StagehandEvalError | Convert IIFE to `async (intermediate) => {}` pattern |
+
+---
+
+## Twitter/X API Rate Limits
+
+**Twitter GraphQL API has strict rate limits on API calls.** When testing twitter commands:
+
+- **Space tests at least 30 seconds apart** between each command test
+- **API-based read commands** (tweets, timeline, profile, following, lists, bookmark-folders, bookmark-folder, list-tweets, bookmarks, likes, article, search) make GraphQL calls that count against the rate limit
+- **DOM-based read commands** (trending, followers, download) are less rate-limited but still require a logged-in session
+- **Write/Interact commands** (follow, unfollow, block, unblock, retweet, unretweet, like, unlike, bookmark, unbookmark, post, reply, quote, delete, hide-reply, reply-dm, accept, list-add, list-remove) modify state and should be tested with caution — prefer read commands for validation
+- **Test with `--limit 3` or `--limit 5`** to minimize API payload size
+- **If you get HTTP 429 errors**, wait 5-15 minutes before continuing
+- **Account credentials**: Tests require Chrome with an active x.com login session (ct0 cookie)
