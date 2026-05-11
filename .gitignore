@@ -24,3 +24,5 @@ docs/.vitepress/cache
 *.db
 autoresearch/results/
 autoresearch-results.tsv
+skills/opencli-to-grease/.env
+skills/opencli-to-grease/inference_summary
