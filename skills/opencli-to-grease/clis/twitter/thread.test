@@ -1,82 +1,69 @@
 {
-  "timestamp": "2026-04-16T12:52:39.879Z",
-  "json_file": "./clis/twitter/thread.json",
+  "timestamp": "2026-05-11T10:36:15.692Z",
+  "json_file": "clis/twitter/thread.json",
   "command": "Thread",
   "website": "x.com",
   "params": {
     "tweet_id": "2044315118583066738",
     "limit": 5
   },
-  "success": false,
+  "success": true,
   "data_count": 5,
   "sample_data": [
     {
       "id": "2044315118583066738",
       "author": "elonmusk",
       "text": "Congrats to the @Tesla_AI chip design team on taping out AI5!\n\nAI6, Dojo3 &amp; other exciting chips in work. https://t.co/hm54TdIzBx",
-      "likes": 112766,
-      "retweets": 11559,
+      "likes": 120795,
+      "retweets": 13071,
       "created_at": "Wed Apr 15 07:21:20 +0000 2026",
       "url": "https://x.com/elonmusk/status/2044315118583066738"
     },
     {
-      "id": "2044760427318624729",
-      "author": "vantien70",
-      "text": "@elonmusk @Tesla_AI hi",
+      "id": "2053523128400363565",
+      "author": "acoba_may8543",
+      "text": "@elonmusk @Tesla_AI 👍👍♥️",
       "likes": 0,
       "retweets": 0,
       "in_reply_to": "2044315118583066738",
-      "created_at": "Thu Apr 16 12:50:50 +0000 2026",
-      "url": "https://x.com/vantien70/status/2044760427318624729"
+      "created_at": "Sun May 10 17:10:41 +0000 2026",
+      "url": "https://x.com/acoba_may8543/status/2053523128400363565"
     },
     {
-      "id": "2044760280643572091",
-      "author": "dremer933194899",
-      "text": "@elonmusk @Tesla_AI Solid work, keep pushing forward.",
-      "likes": 0,
+      "id": "2053328719473717431",
+      "author": "ISchrick70921",
+      "text": "@elonmusk @Tesla_AI Gratulation",
+      "likes": 1,
       "retweets": 0,
       "in_reply_to": "2044315118583066738",
-      "created_at": "Thu Apr 16 12:50:15 +0000 2026",
-      "url": "https://x.com/dremer933194899/status/2044760280643572091"
+      "created_at": "Sun May 10 04:18:10 +0000 2026",
+      "url": "https://x.com/ISchrick70921/status/2053328719473717431"
     },
     {
-      "id": "2044760266445836642",
-      "author": "stasjoey1",
-      "text": "@elonmusk @Tesla_AI Ok",
+      "id": "2053185920384336217",
+      "author": "TXSLA99",
+      "text": "@elonmusk @Tesla_AI @aelluswamy @Tesla_AI Release of 14.3.2 puts a stain on all of the progress that’s been accomplished, with the amount of regression I’m seeing. Fix it. This is horrible.",
       "likes": 0,
       "retweets": 0,
       "in_reply_to": "2044315118583066738",
-      "created_at": "Thu Apr 16 12:50:11 +0000 2026",
-      "url": "https://x.com/stasjoey1/status/2044760266445836642"
+      "created_at": "Sat May 09 18:50:44 +0000 2026",
+      "url": "https://x.com/TXSLA99/status/2053185920384336217"
     },
     {
-      "id": "2044758160377053343",
-      "author": "aadilshaikh29",
-      "text": "@elonmusk @Tesla_AI The action cost globally making gadgets such as phone and laptops becomes more costly ever in the history which effect many students and many more globally could have better management to aligned things differently impact would have been better rest the existing chips in work",
-      "likes": 0,
-      "retweets": 0,
+      "id": "2052840004733346027",
+      "author": "medusawalter",
+      "text": "@elonmusk @elonumuskX @Tesla_AI Herzlichen Glückwunsch.",
+      "likes": 2,
+      "retweets": 1,
       "in_reply_to": "2044315118583066738",
-      "created_at": "Thu Apr 16 12:41:49 +0000 2026",
-      "url": "https://x.com/aadilshaikh29/status/2044758160377053343"
+      "created_at": "Fri May 08 19:56:11 +0000 2026",
+      "url": "https://x.com/medusawalter/status/2052840004733346027"
     }
   ],
   "comparison": {
     "grease_count": 5,
     "opencli_count": 5,
-    "match": false,
-    "differences": [
-      "Item 1 \"likes\": Grease=\"112766\" vs OpenCLI=\"112770\"",
-      "Item 1 \"retweets\": Grease=\"11559\" vs OpenCLI=\"11558\"",
-      "Item 2 \"id\": Grease=\"2044760427318624729\" vs OpenCLI=\"2044760791719780760\"",
-      "Item 2 \"author\": Grease=\"vantien70\" vs OpenCLI=\"simonmeng1995\"",
-      "Item 2 \"text\": Grease=\"@elonmusk @Tesla_AI hi\" vs OpenCLI=\"@elonmusk @Tesla_AI GROK’s Bill for Elon: The Real\"",
-      "Item 2 \"created_at\": Grease=\"Thu Apr 16 12:50:50 +0000 2026\" vs OpenCLI=\"Thu Apr 16 12:52:17 +0000 2026\"",
-      "Item 2 \"url\": Grease=\"https://x.com/vantien70/status/2044760427318624729\" vs OpenCLI=\"https://x.com/simonmeng1995/status/204476079171978\"",
-      "Item 3 \"id\": Grease=\"2044760280643572091\" vs OpenCLI=\"2044760427318624729\"",
-      "Item 3 \"author\": Grease=\"dremer933194899\" vs OpenCLI=\"vantien70\"",
-      "Item 3 \"text\": Grease=\"@elonmusk @Tesla_AI Solid work, keep pushing forwa\" vs OpenCLI=\"@elonmusk @Tesla_AI hi\"",
-      "Item 3 \"created_at\": Grease=\"Thu Apr 16 12:50:15 +0000 2026\" vs OpenCLI=\"Thu Apr 16 12:50:50 +0000 2026\"",
-      "Item 3 \"url\": Grease=\"https://x.com/dremer933194899/status/2044760280643\" vs OpenCLI=\"https://x.com/vantien70/status/2044760427318624729\""
-    ]
+    "match": true,
+    "differences": []
   }
 }

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-04-16T12:53:03.263Z",
-  "json_file": "./clis/twitter/like.json",
+  "timestamp": "2026-05-11T10:38:49.047Z",
+  "json_file": "clis/twitter/like.json",
   "command": "Like",
   "website": "x.com",
   "params": {
@@ -11,7 +11,13 @@
   "sample_data": [
     {
       "ok": true,
-      "message": "Tweet successfully liked."
+      "message": "Tweet is already liked."
     }
-  ]
+  ],
+  "comparison": {
+    "grease_count": 1,
+    "opencli_count": 1,
+    "match": true,
+    "differences": []
+  }
 }

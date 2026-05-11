@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-04-16T12:53:12.392Z",
-  "json_file": "./clis/twitter/bookmark.json",
+  "timestamp": "2026-05-11T10:39:12.050Z",
+  "json_file": "clis/twitter/bookmark.json",
   "command": "Bookmark",
   "website": "x.com",
   "params": {
@@ -11,7 +11,13 @@
   "sample_data": [
     {
       "ok": true,
-      "message": "Tweet successfully bookmarked."
+      "message": "Tweet is already bookmarked."
     }
-  ]
+  ],
+  "comparison": {
+    "grease_count": 1,
+    "opencli_count": 1,
+    "match": true,
+    "differences": []
+  }
 }

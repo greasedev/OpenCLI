@@ -1,0 +1,38 @@
+{
+  "actions": [
+    {
+      "action": "open",
+      "argument": { "url": "https://x.com/home", "waitUntil": "load" }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { const limit = {{ limit }} || 20; const ct0 = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('ct0='))?.split('=')[1]; if (!ct0) return { error: 'Not logged into x.com (no ct0 cookie)' }; const captured = []; const origFetch = window.fetch; window.fetch = async function(...args) { const resp = await origFetch.apply(this, args); try { const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || args[0]?.href || ''; if (url.includes('NotificationsTimeline')) { const clone = resp.clone(); const body = await clone.text(); captured.push(JSON.parse(body)); } } catch {} return resp; }; window.history.pushState({}, '', '/notifications'); window.dispatchEvent(new PopStateEvent('popstate', { state: {} })); await new Promise(r => setTimeout(r, 3000)); const primary = document.querySelector('[data-testid=\"primaryColumn\"]'); if (!primary) await new Promise(r => setTimeout(r, 3000)); await new Promise(r => setTimeout(r, 2000)); window.fetch = origFetch; const results = []; const seen = new Set(); for (const d of captured) { try { const instructions = d?.data?.viewer?.timeline_response?.timeline?.instructions || d?.data?.viewer_v2?.user_results?.result?.notification_timeline?.timeline?.instructions || d?.data?.timeline?.instructions || []; for (const inst of instructions) { for (const entry of inst.entries || []) { const c = entry.content; const notif = c?.item?.itemContent?.notification || c?.itemContent?.notification; if (notif) { const id = entry.entryId?.replace('notification-', '') || ''; if (!id || seen.has(id)) continue; seen.add(id); const icon = notif.icon?.id || ''; let action = 'other'; if (icon.includes('heart') || icon.includes('like')) action = 'like'; else if (icon.includes('retweet') || icon.includes('recycle')) action = 'retweet'; else if (icon.includes('reply') || icon.includes('comment')) action = 'reply'; else if (icon.includes('follow') || icon.includes('person_add')) action = 'follow'; else if (icon.includes('quote')) action = 'quote'; const tweet = c?.item?.itemContent?.tweet_results?.result; const tw = tweet?.tweet || tweet; const l = tw?.legacy || {}; const u = tw?.core?.user_results?.result; results.push({ id, action, author: u?.legacy?.screen_name || u?.core?.screen_name || '', text: (tw?.note_tweet?.note_tweet_results?.result?.text || l?.full_text || '').slice(0, 200), url: tw?.rest_id ? 'https://x.com/i/status/' + tw.rest_id : '' }); } } } } catch {} } return { results: results.slice(0, limit) }; }"
+      }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { if (intermediate.error) return [{ id: '', action: '', author: '', text: '', url: '', error: intermediate.error }]; return intermediate.results || []; }"
+      }
+    }
+  ],
+  "api_endpoint": "twitter-notifications",
+  "category": "auth",
+  "description": "Fetch Twitter/X notifications via network intercept",
+  "is_public": true,
+  "method": "GET",
+  "name": "Notifications",
+  "output_schema": [
+    { "name": "id", "type": "string", "description": "通知ID" },
+    { "name": "action", "type": "string", "description": "动作类型" },
+    { "name": "author", "type": "string", "description": "用户" },
+    { "name": "text", "type": "string", "description": "内容" },
+    { "name": "url", "type": "string", "description": "链接" }
+  ],
+  "variables": [
+    { "name": "limit", "type": "int", "default": 20, "help": "Number of notifications", "test": 5 }
+  ],
+  "website_domain": "x.com",
+  "website_id": "website-x.com"
+}

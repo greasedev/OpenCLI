@@ -1,20 +1,25 @@
 {
-  "timestamp": "2026-04-20T08:51:12.852Z",
-  "json_file": "./clis/twitter/unfollow.json",
+  "timestamp": "2026-05-11T10:37:12.066Z",
+  "json_file": "clis/twitter/unfollow.json",
   "command": "Unfollow",
   "website": "x.com",
   "params": {
-    "username": "TateTheTalisman"
+    "username": "elonmusk"
   },
-  "success": true,
+  "success": false,
   "data_count": 1,
   "sample_data": [
     {
-      "ready": true,
-      "username": "TateTheTalisman",
-      "done": true,
-      "ok": true,
-      "message": "Successfully unfollowed @TateTheTalisman via Following button."
+      "ok": false,
+      "message": "Dropdown menu did not appear."
     }
-  ]
+  ],
+  "comparison": {
+    "grease_count": 1,
+    "opencli_count": 1,
+    "match": false,
+    "differences": [
+      "Item 1 \"message\": Grease=\"Dropdown menu did not appear.\" vs OpenCLI=\"Not following @elonmusk (already unfollowed).\""
+    ]
+  }
 }

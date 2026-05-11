@@ -1,0 +1,39 @@
+{
+  "actions": [
+    {
+      "action": "open",
+      "argument": { "url": "https://x.com/messages", "waitUntil": "load" }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { const text = '{{ text }}'; const max = {{ max }} || 20; const skipReplied = {{ skip_replied }} !== false; const ct0 = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('ct0='))?.split('=')[1]; if (!ct0) return { error: 'Not logged into x.com' }; await new Promise(r => setTimeout(r, 3000)); const conversationItems = document.querySelectorAll('[data-testid^=\"dm-conversation-item-\"]'); const results = []; for (let i = 0; i < Math.min(conversationItems.length, max); i++) { const item = conversationItems[i]; const header = item.querySelector('[data-testid=\"conversation-header\"]'); const username = header?.textContent?.trim() || 'unknown'; if (skipReplied && item.querySelector('[data-testid=\"dmComposerTextInput\"]')) continue; item.click(); await new Promise(r => setTimeout(r, 2000)); const input = document.querySelector('[data-testid=\"dmComposerTextInput\"]'); if (!input) { results.push({ index: i + 1, status: 'skipped', user: username, message: 'No input found' }); continue; } input.focus(); try { document.execCommand('insertText', false, text); } catch { input.value = text; input.dispatchEvent(new Event('input', { bubbles: true })); } await new Promise(r => setTimeout(r, 500)); const sendBtn = document.querySelector('[data-testid=\"dmComposerSendButton\"]'); if (sendBtn) sendBtn.click(); await new Promise(r => setTimeout(r, 500)); results.push({ index: i + 1, status: 'sent', user: username, message: text.slice(0, 100) }); } return { results }; }"
+      }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { if (intermediate.error) return [{ index: 0, status: 'error', user: '', message: intermediate.error }]; return intermediate.results || []; }"
+      }
+    }
+  ],
+  "api_endpoint": "twitter-reply-dm",
+  "category": "interact",
+  "description": "Send DM replies to recent conversations",
+  "is_public": true,
+  "method": "POST",
+  "name": "ReplyDM",
+  "output_schema": [
+    { "name": "index", "type": "number", "description": "索引" },
+    { "name": "status", "type": "string", "description": "状态(sent/skipped/error)" },
+    { "name": "user", "type": "string", "description": "用户" },
+    { "name": "message", "type": "string", "description": "消息/错误" }
+  ],
+  "variables": [
+    { "name": "text", "type": "string", "required": true, "help": "Message text to send", "test": "Hello!" },
+    { "name": "max", "type": "int", "default": 20, "help": "Max conversations", "test": 2 },
+    { "name": "skip_replied", "type": "bool", "default": true, "help": "Skip already replied", "test": true }
+  ],
+  "website_domain": "x.com",
+  "website_id": "website-x.com"
+}

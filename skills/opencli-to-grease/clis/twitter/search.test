@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-04-16T12:36:36.470Z",
-  "json_file": "./clis/twitter/search.json",
+  "timestamp": "2026-05-11T10:32:29.086Z",
+  "json_file": "clis/twitter/search.json",
   "command": "Search",
   "website": "x.com",
   "params": {
@@ -9,27 +9,65 @@
     "filter": "top"
   },
   "success": false,
-  "data_count": 1,
+  "data_count": 5,
   "sample_data": [
     {
-      "id": "",
-      "author": "",
-      "text": "",
-      "created_at": "",
-      "likes": 0,
-      "views": "0",
-      "url": "",
-      "error": "HTTP 404"
+      "id": "2051709028250915275",
+      "author": "OpenAI",
+      "text": "GPT-5.5 Instant is starting to roll out in ChatGPT.\n\nIt’s a big upgrade, giving you smarter, clearer, and more personalized answers in a warmer, more natural tone.\n\nAnd it's also more concise, which we heard you wanted. We think you'll love chatting with it.",
+      "created_at": "2026-05-05T17:02:05.000Z",
+      "likes": "10K",
+      "views": "",
+      "url": "https://x.com/i/status/2051709028250915275"
+    },
+    {
+      "id": "2052060350770515978",
+      "author": "xai",
+      "text": "SpaceXAI will provide @AnthropicAI with access to Colossus 1, one of the world’s largest and fastest-deployed AI supercomputers, to provide additional capacity for Claude → http://x.ai/news/anthropic-compute-partnership…",
+      "created_at": "2026-05-06T16:18:07.000Z",
+      "likes": "25K",
+      "views": "",
+      "url": "https://x.com/i/status/2052060350770515978"
+    },
+    {
+      "id": "2049903687016063456",
+      "author": "GoogleAI",
+      "text": "Last week, we made Gemini Embedding 2, our first natively multimodal embedding model, available to the general public. Since then, developers have used it to build video analysis tools, visual shopping assistants, and more.\n\nBut you might be wondering... what is an embedding",
+      "created_at": "2026-04-30T17:28:19.000Z",
+      "likes": "2.4K",
+      "views": "",
+      "url": "https://x.com/i/status/2049903687016063456"
+    },
+    {
+      "id": "2052789253038592466",
+      "author": "GoogleAI",
+      "text": "Happy Friday! We’re officially 11 days away from I/O (but the launches keep rolling in). Here’s what happened this week:\n\n— The @googlehealth app, featuring a personalized health coach built with Gemini that uses your wearables, favorite health & fitness apps, and medical",
+      "created_at": "2026-05-08T16:34:31.000Z",
+      "likes": "661",
+      "views": "",
+      "url": "https://x.com/i/status/2052789253038592466"
+    },
+    {
+      "id": "2049886895530967534",
+      "author": "AndrewYNg",
+      "text": "How we prompt AI is very different in 2026 than 2022 when ChatGPT came out.\n\nI'm teaching a new course, AI Prompting for Everyone, to help you become an AI power user — whatever your current skill level.\n\nIt covers skills that apply across ChatGPT, Gemini, Claude, and other AI",
+      "created_at": "2026-04-30T16:21:35.000Z",
+      "likes": "4.4K",
+      "views": "",
+      "url": "https://x.com/i/status/2049886895530967534"
     }
   ],
   "comparison": {
-    "grease_count": 1,
+    "grease_count": 5,
     "opencli_count": 5,
     "match": false,
     "differences": [
-      "Count mismatch: GreaseAI=1, OpenCLI=5",
-      "Item 1 \"likes\": Grease=\"0\" vs OpenCLI=\"41312\"",
-      "Item 1 \"views\": Grease=\"0\" vs OpenCLI=\"5593497\""
+      "Item 1 \"created_at\": Grease=\"2026-05-05T17:02:05.000Z\" vs OpenCLI=\"Tue May 05 17:02:05 +0000 2026\"",
+      "Item 1 \"likes\": Grease=\"10K\" vs OpenCLI=\"10678\"",
+      "Item 2 \"created_at\": Grease=\"2026-05-06T16:18:07.000Z\" vs OpenCLI=\"Wed May 06 16:18:07 +0000 2026\"",
+      "Item 2 \"likes\": Grease=\"25K\" vs OpenCLI=\"25127\"",
+      "Item 3 \"created_at\": Grease=\"2026-04-30T17:28:19.000Z\" vs OpenCLI=\"Thu Apr 30 17:28:19 +0000 2026\"",
+      "Item 3 \"likes\": Grease=\"2.4K\" vs OpenCLI=\"2498\""
     ]
   }
 }

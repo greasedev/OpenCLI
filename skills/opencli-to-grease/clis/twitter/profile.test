@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-04-16T14:29:06.734Z",
-  "json_file": "profile.json",
+  "timestamp": "2026-05-11T10:35:28.441Z",
+  "json_file": "clis/twitter/profile.json",
   "command": "Profile",
   "website": "x.com",
   "params": {
@@ -15,10 +15,10 @@
       "bio": "https://t.co/dDtDyVssfm",
       "location": "",
       "url": "",
-      "followers": 238131401,
-      "following": 1311,
-      "tweets": 101354,
-      "likes": 222893,
+      "followers": 240003725,
+      "following": 1324,
+      "tweets": 102333,
+      "likes": 226485,
       "verified": true,
       "created_at": "Tue Jun 02 20:12:29 +0000 2009"
     }
@@ -28,7 +28,7 @@
     "opencli_count": 1,
     "match": false,
     "differences": [
-      "Item 1 \"followers\": Grease=\"238131401\" vs OpenCLI=\"238131437\""
+      "Item 1 \"followers\": Grease=\"240003725\" vs OpenCLI=\"240003728\""
     ]
   }
 }

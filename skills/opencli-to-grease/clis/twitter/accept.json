@@ -1,0 +1,38 @@
+{
+  "actions": [
+    {
+      "action": "open",
+      "argument": { "url": "https://x.com/messages/requests", "waitUntil": "load" }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { const query = '{{ query }}'; const max = {{ max }} || 20; const keywords = query.split(',').map(k => k.trim().toLowerCase()).filter(Boolean); const ct0 = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('ct0='))?.split('=')[1]; if (!ct0) return { error: 'Not logged into x.com' }; await new Promise(r => setTimeout(r, 3000)); const results = []; let accepted = 0; const conversations = document.querySelectorAll('[data-testid=\"conversation\"]'); for (const conv of conversations) { if (accepted >= max) break; const header = conv.querySelector('[data-testid=\"conversation-header\"]'); const preview = (conv.textContent || '').toLowerCase(); const user = header?.textContent?.trim() || 'unknown'; const matches = keywords.length === 0 || keywords.some(k => preview.includes(k)); if (!matches) { results.push({ index: accepted + 1, status: 'skipped', user, message: 'No keyword match' }); continue; } conv.click(); await new Promise(r => setTimeout(r, 2000)); const chatText = document.querySelector('[data-testid=\"DmScrollerContainer\"]')?.textContent || ''; const acceptBtn = Array.from(document.querySelectorAll('[role=\"button\"]')).find(b => b.textContent?.trim() === 'Accept' || b.textContent?.trim() === '接受'); if (!acceptBtn) { results.push({ index: accepted + 1, status: 'skipped', user, message: 'No accept button' }); continue; } acceptBtn.click(); await new Promise(r => setTimeout(r, 1000)); const confirmDlg = document.querySelector('[role=\"dialog\"]'); if (confirmDlg) { const confirmBtns = confirmDlg.querySelectorAll('[role=\"button\"]'); const acceptConfirm = Array.from(confirmBtns).find(b => b.textContent?.trim() === 'Accept' || b.textContent?.trim() === '接受'); if (acceptConfirm) { acceptConfirm.click(); await new Promise(r => setTimeout(r, 500)); } } accepted++; results.push({ index: accepted, status: 'accepted', user, message: chatText.slice(0, 200) }); } return { results }; }"
+      }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { if (intermediate.error) return [{ index: 0, status: 'error', user: '', message: intermediate.error }]; return intermediate.results || []; }"
+      }
+    }
+  ],
+  "api_endpoint": "twitter-accept",
+  "category": "interact",
+  "description": "Accept message requests matching keywords",
+  "is_public": true,
+  "method": "POST",
+  "name": "Accept",
+  "output_schema": [
+    { "name": "index", "type": "number", "description": "索引" },
+    { "name": "status", "type": "string", "description": "状态(accepted/skipped/error)" },
+    { "name": "user", "type": "string", "description": "用户" },
+    { "name": "message", "type": "string", "description": "消息/错误" }
+  ],
+  "variables": [
+    { "name": "query", "type": "string", "required": true, "help": "Keywords (comma-separated)", "test": "hello,hi" },
+    { "name": "max", "type": "int", "default": 20, "help": "Max accepts", "test": 3 }
+  ],
+  "website_domain": "x.com",
+  "website_id": "website-x.com"
+}

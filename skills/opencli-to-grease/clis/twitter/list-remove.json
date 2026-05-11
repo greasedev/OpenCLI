@@ -1,0 +1,36 @@
+{
+  "actions": [
+    {
+      "action": "open",
+      "argument": { "url": "https://x.com/{{ username }}", "waitUntil": "load" }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { const listId = '{{ list_id }}'; const username = '{{ username }}'.replace(/^@/, ''); const ct0 = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('ct0='))?.split('=')[1]; if (!ct0) return { error: 'Not logged into x.com' }; await new Promise(r => setTimeout(r, 2000)); const moreBtn = document.querySelector('[data-testid=\"userActions\"]'); if (!moreBtn) return { ok: false, message: 'User actions button not found' }; moreBtn.click(); await new Promise(r => setTimeout(r, 500)); const listMenuItem = Array.from(document.querySelectorAll('[role=\"menuitem\"]')).find(m => /list/i.test(m.textContent || '') && /add|remove/i.test(m.textContent || '')); if (!listMenuItem) return { ok: false, message: 'Add/Remove from Lists menu not found' }; listMenuItem.click(); await new Promise(r => setTimeout(r, 1000)); const dialog = document.querySelector('[role=\"dialog\"]'); if (!dialog) return { ok: false, message: 'Lists dialog not found' }; const listCells = dialog.querySelectorAll('[data-testid=\"listCell\"]'); let targetCell = null; for (const cell of listCells) { if (cell.textContent?.includes(listId)) { targetCell = cell; break; } } if (!targetCell) return { ok: false, message: 'List ' + listId + ' not found in dialog' }; const checked = targetCell.querySelector('[role=\"checkbox\"]')?.getAttribute('aria-checked'); if (checked === 'false' || !checked) return { ok: true, message: 'Already not in list' }; targetCell.click(); await new Promise(r => setTimeout(r, 500)); const saveBtn = Array.from(dialog.querySelectorAll('[role=\"button\"]')); const done = saveBtn.find(b => /save|done/i.test(b.textContent || '')); if (done) { done.click(); await new Promise(r => setTimeout(r, 500)); } const closeBtn = dialog.querySelector('[data-testid=\"app-bar-close\"]'); if (closeBtn) closeBtn.click(); return { ok: true, message: 'Removed from list', listId, username }; }"
+      }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { if (intermediate.error) return [{ ok: false, message: intermediate.error }]; return [intermediate]; }"
+      }
+    }
+  ],
+  "api_endpoint": "twitter-list-remove",
+  "category": "interact",
+  "description": "Remove a user from a Twitter/X list",
+  "is_public": true,
+  "method": "POST",
+  "name": "ListRemove",
+  "output_schema": [
+    { "name": "ok", "type": "boolean", "description": "成功" },
+    { "name": "message", "type": "string", "description": "结果消息" }
+  ],
+  "variables": [
+    { "name": "list_id", "type": "string", "required": true, "help": "Numeric list ID", "test": "1893180650434252969" },
+    { "name": "username", "type": "string", "required": true, "help": "Twitter screen name", "test": "elonmusk" }
+  ],
+  "website_domain": "x.com",
+  "website_id": "website-x.com"
+}
