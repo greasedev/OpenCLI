@@ -1,12 +1,20 @@
 {
-  "timestamp": "2026-05-11T14:29:32.131Z",
+  "timestamp": "2026-05-11T14:50:10.165Z",
   "json_file": "clis/twitter/lists.json",
   "command": "Lists",
   "website": "x.com",
   "params": {
     "limit": 5
   },
-  "success": true,
+  "success": false,
   "data_count": 0,
-  "sample_data": []
+  "sample_data": [],
+  "comparison": {
+    "grease_count": 0,
+    "opencli_count": 4,
+    "match": false,
+    "differences": [
+      "Count mismatch: GreaseAI=0, OpenCLI=4"
+    ]
+  }
 }

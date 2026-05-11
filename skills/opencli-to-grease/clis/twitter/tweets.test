@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-11T14:34:30.068Z",
+  "timestamp": "2026-05-11T15:04:26.700Z",
   "json_file": "clis/twitter/tweets.json",
   "command": "Tweets",
   "website": "x.com",
@@ -7,7 +7,15 @@
     "username": "elonmusk",
     "limit": 5
   },
-  "success": true,
+  "success": false,
   "data_count": 0,
-  "sample_data": []
+  "sample_data": [],
+  "comparison": {
+    "grease_count": 0,
+    "opencli_count": 5,
+    "match": false,
+    "differences": [
+      "Count mismatch: GreaseAI=0, OpenCLI=5"
+    ]
+  }
 }

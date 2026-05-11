@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-11T14:06:54.328Z",
+  "timestamp": "2026-05-11T14:49:50.512Z",
   "json_file": "clis/twitter/followers.json",
   "command": "Followers",
   "website": "x.com",
@@ -41,12 +41,12 @@
     "opencli_count": 5,
     "match": false,
     "differences": [
-      "Item 1 \"screen_name\": Grease=\"jordanbpeterson\" vs OpenCLI=\"ml_safety\"",
-      "Item 1 \"name\": Grease=\"Dr Jordan B Peterson@jordanbpetersonFollowClick to\" vs OpenCLI=\"ML Safety\"",
-      "Item 2 \"screen_name\": Grease=\"DonaldJTrumpJr\" vs OpenCLI=\"OriolVinyalsML\"",
-      "Item 2 \"name\": Grease=\"Donald Trump Jr.@DonaldJTrumpJrFollowClick to Foll\" vs OpenCLI=\"Oriol Vinyals\"",
-      "Item 3 \"screen_name\": Grease=\"hodgetwins\" vs OpenCLI=\"kaggle\"",
-      "Item 3 \"name\": Grease=\"Hodgetwins@hodgetwinsFollowClick to Follow hodgetw\" vs OpenCLI=\"Kaggle\""
+      "Item 1 \"screen_name\": Grease=\"jordanbpeterson\" vs OpenCLI=\"DbrxMosaicAI\"",
+      "Item 1 \"name\": Grease=\"Dr Jordan B Peterson@jordanbpetersonFollowClick to\" vs OpenCLI=\"Databricks AI Research\"",
+      "Item 2 \"screen_name\": Grease=\"DonaldJTrumpJr\" vs OpenCLI=\"soumithchintala\"",
+      "Item 2 \"name\": Grease=\"Donald Trump Jr.@DonaldJTrumpJrFollowClick to Foll\" vs OpenCLI=\"Soumith Chintala\"",
+      "Item 3 \"screen_name\": Grease=\"hodgetwins\" vs OpenCLI=\"PleasePlatforms\"",
+      "Item 3 \"name\": Grease=\"Hodgetwins@hodgetwinsFollowClick to Follow hodgetw\" vs OpenCLI=\"Please\""
     ]
   }
 }
