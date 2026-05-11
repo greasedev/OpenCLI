@@ -225,7 +225,7 @@ async function runOpenCliCommand(
   console.log(`\nRunning OpenCLI: ${cmdStr}`);
 
   try {
-    const { stdout, stderr } = await execAsync(cmdStr, { timeout: 60000 });
+    const { stdout, stderr } = await execAsync(cmdStr + " 2>/dev/null", { timeout: 60000 });
 
     if (stderr && !stderr.includes('Warning')) {
       console.log(`  stderr: ${stderr.slice(0, 200)}`);
