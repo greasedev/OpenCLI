@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-05-11T14:07:23.716Z",
+  "json_file": "clis/twitter/list-tweets.json",
+  "command": "ListTweets",
+  "website": "x.com",
+  "params": {
+    "list_id": "1893180650434252969",
+    "limit": 5
+  },
+  "success": true,
+  "data_count": 0,
+  "sample_data": [],
+  "comparison": {
+    "grease_count": 0,
+    "opencli_count": 0,
+    "match": true,
+    "differences": []
+  }
+}

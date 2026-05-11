@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-05-11T14:06:54.328Z",
+  "json_file": "clis/twitter/followers.json",
+  "command": "Followers",
+  "website": "x.com",
+  "params": {
+    "user": "elonmusk",
+    "limit": 5
+  },
+  "success": false,
+  "data_count": 5,
+  "sample_data": [
+    {
+      "screen_name": "jordanbpeterson",
+      "name": "Dr Jordan B Peterson@jordanbpetersonFollowClick to Follow jordanbpetersonBest-Selling Author | Clinical Psychologist | #1 Education Podcast | Co-founder of @petersonacademy | Order my new book \"We Who Wrestle With God\" here:",
+      "bio": ""
+    },
+    {
+      "screen_name": "DonaldJTrumpJr",
+      "name": "Donald Trump Jr.@DonaldJTrumpJrFollowClick to Follow DonaldJTrumpJrCo-Founder @worldlibertyfi",
+      "bio": ""
+    },
+    {
+      "screen_name": "hodgetwins",
+      "name": "Hodgetwins@hodgetwinsFollowClick to Follow hodgetwinsMerch & Giveaways at: http://officialhodgetwins.com —— PODCAST: @hodgetwinspod",
+      "bio": ""
+    },
+    {
+      "screen_name": "TheBabylonBee",
+      "name": "The Babylon Bee@TheBabylonBeeFollowClick to Follow TheBabylonBeeFake news you can trust",
+      "bio": ""
+    },
+    {
+      "screen_name": "Jim_Jordan",
+      "name": "Rep. Jim Jordan@Jim_JordanFollowClick to Follow Jim_JordanProudly serving Ohio's beautiful Fourth District. Chairman @JudiciaryGOP. Fighting to #DoWhatWeSaid",
+      "bio": ""
+    }
+  ],
+  "comparison": {
+    "grease_count": 5,
+    "opencli_count": 5,
+    "match": false,
+    "differences": [
+      "Item 1 \"screen_name\": Grease=\"jordanbpeterson\" vs OpenCLI=\"ml_safety\"",
+      "Item 1 \"name\": Grease=\"Dr Jordan B Peterson@jordanbpetersonFollowClick to\" vs OpenCLI=\"ML Safety\"",
+      "Item 2 \"screen_name\": Grease=\"DonaldJTrumpJr\" vs OpenCLI=\"OriolVinyalsML\"",
+      "Item 2 \"name\": Grease=\"Donald Trump Jr.@DonaldJTrumpJrFollowClick to Foll\" vs OpenCLI=\"Oriol Vinyals\"",
+      "Item 3 \"screen_name\": Grease=\"hodgetwins\" vs OpenCLI=\"kaggle\"",
+      "Item 3 \"name\": Grease=\"Hodgetwins@hodgetwinsFollowClick to Follow hodgetw\" vs OpenCLI=\"Kaggle\""
+    ]
+  }
+}

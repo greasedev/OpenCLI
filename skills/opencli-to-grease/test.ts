@@ -196,17 +196,17 @@ async function runOpenCliCommand(
   const positionalArgs: string[] = [];
   const optionalArgs: string[] = [];
 
-  // Only truly required variables become positional args
-  const requiredNames = (greaseVariables || [])
-    .filter(v => v.required === true)
+  // Positional args: required=true OR positional=true
+  const positionalNames = (greaseVariables || [])
+    .filter(v => v.required === true || v.positional === true)
     .map(v => v.name);
 
   for (const [key, value] of Object.entries(mappedParams)) {
     if (value === undefined || value === null) continue;
-    if (value === '' && !requiredNames.includes(key)) continue;
+    if (value === '' && !positionalNames.includes(key)) continue;
 
-    // Only required params are positional, others are flags
-    if (requiredNames.includes(key) && value !== '') {
+    // Positional params
+    if (positionalNames.includes(key) && value !== '') {
       positionalArgs.push(`"${value}"`);
     } else if (key === 'limit') {
       optionalArgs.push(`--limit ${value}`);
@@ -225,7 +225,7 @@ async function runOpenCliCommand(
   console.log(`\nRunning OpenCLI: ${cmdStr}`);
 
   try {
-    const { stdout, stderr } = await execAsync(cmdStr + " 2>/dev/null", { timeout: 60000 });
+    const { stdout, stderr } = await execAsync(cmdStr + " 2>/dev/null", { timeout: 60000, shell: true });
 
     if (stderr && !stderr.includes('Warning')) {
       console.log(`  stderr: ${stderr.slice(0, 200)}`);

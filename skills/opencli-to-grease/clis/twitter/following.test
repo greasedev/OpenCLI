@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-11T10:57:55.330Z",
+  "timestamp": "2026-05-11T14:06:37.594Z",
   "json_file": "clis/twitter/following.json",
   "command": "Following",
   "website": "x.com",
@@ -7,38 +7,46 @@
     "user": "elonmusk",
     "limit": 5
   },
-  "success": true,
+  "success": false,
   "data_count": 5,
   "sample_data": [
     {
       "screen_name": "jordanbpeterson",
       "name": "Dr Jordan B Peterson",
       "bio": "Best-Selling Author | Clinical Psychologist | #1 Education Podcast | Co-founder of @petersonacademy | Order my new book \"We Who Wrestle With God\" here:",
-      "followers": 6184017
+      "followers": 6184087
     },
     {
       "screen_name": "DonaldJTrumpJr",
       "name": "Donald Trump Jr.",
       "bio": "Co-Founder @worldlibertyfi",
-      "followers": 16261701
+      "followers": 16261981
     },
     {
       "screen_name": "hodgetwins",
       "name": "Hodgetwins",
       "bio": "Merch & Giveaways at: https://t.co/kxb8qjHatu —— PODCAST: @hodgetwinspod",
-      "followers": 3516178
+      "followers": 3516194
     },
     {
       "screen_name": "TheBabylonBee",
       "name": "The Babylon Bee",
       "bio": "Fake news you can trust 🐝",
-      "followers": 5268020
+      "followers": 5268120
     },
     {
       "screen_name": "dbongino",
       "name": "Dan Bongino",
       "bio": "Just here for the comments.",
-      "followers": 7484977
+      "followers": 7484971
     }
-  ]
+  ],
+  "comparison": {
+    "grease_count": 5,
+    "opencli_count": 5,
+    "match": false,
+    "differences": [
+      "Item 2 \"followers\": Grease=\"16261981\" vs OpenCLI=\"16261982\""
+    ]
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-05-11T14:29:47.344Z",
+  "json_file": "clis/twitter/notifications.json",
+  "command": "Notifications",
+  "website": "x.com",
+  "params": {
+    "limit": 5
+  },
+  "success": true,
+  "data_count": 0,
+  "sample_data": []
+}
