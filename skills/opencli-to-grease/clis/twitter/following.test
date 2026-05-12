@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-05-11T14:49:34.361Z",
-  "json_file": "clis/twitter/following.json",
+  "timestamp": "2026-05-12T04:00:54.069Z",
+  "json_file": "./clis/twitter/following.json",
   "command": "Following",
   "website": "x.com",
   "params": {
@@ -14,31 +14,31 @@
       "screen_name": "jordanbpeterson",
       "name": "Dr Jordan B Peterson",
       "bio": "Best-Selling Author | Clinical Psychologist | #1 Education Podcast | Co-founder of @petersonacademy | Order my new book \"We Who Wrestle With God\" here:",
-      "followers": 6184066
+      "followers": 6182177
     },
     {
       "screen_name": "DonaldJTrumpJr",
       "name": "Donald Trump Jr.",
       "bio": "Co-Founder @worldlibertyfi",
-      "followers": 16261996
+      "followers": 16256744
     },
     {
       "screen_name": "hodgetwins",
       "name": "Hodgetwins",
       "bio": "Merch & Giveaways at: https://t.co/kxb8qjHatu —— PODCAST: @hodgetwinspod",
-      "followers": 3516201
+      "followers": 3513956
     },
     {
       "screen_name": "TheBabylonBee",
       "name": "The Babylon Bee",
       "bio": "Fake news you can trust 🐝",
-      "followers": 5268165
+      "followers": 5264602
     },
     {
       "screen_name": "dbongino",
       "name": "Dan Bongino",
       "bio": "Just here for the comments.",
-      "followers": 7485001
+      "followers": 7480615
     }
   ],
   "comparison": {

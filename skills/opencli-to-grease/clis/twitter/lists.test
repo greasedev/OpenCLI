@@ -1,20 +1,47 @@
 {
-  "timestamp": "2026-05-11T14:50:10.165Z",
-  "json_file": "clis/twitter/lists.json",
+  "timestamp": "2026-05-12T04:01:05.946Z",
+  "json_file": "./clis/twitter/lists.json",
   "command": "Lists",
   "website": "x.com",
   "params": {
     "limit": 5
   },
-  "success": false,
-  "data_count": 0,
-  "sample_data": [],
+  "success": true,
+  "data_count": 4,
+  "sample_data": [
+    {
+      "id": "1266049291765891072",
+      "name": "LA Fire",
+      "members": 68,
+      "followers": 17916,
+      "mode": "public"
+    },
+    {
+      "id": "1307414745629118464",
+      "name": "Emergency",
+      "members": 53,
+      "followers": 726,
+      "mode": "public"
+    },
+    {
+      "id": "1245921263576477698",
+      "name": "CA / SoCal",
+      "members": 35,
+      "followers": 1236,
+      "mode": "public"
+    },
+    {
+      "id": "2046117032786378819",
+      "name": "AI Signal",
+      "members": 1,
+      "followers": 0,
+      "mode": "public"
+    }
+  ],
   "comparison": {
-    "grease_count": 0,
+    "grease_count": 4,
     "opencli_count": 4,
-    "match": false,
-    "differences": [
-      "Count mismatch: GreaseAI=0, OpenCLI=4"
-    ]
+    "match": true,
+    "differences": []
   }
 }

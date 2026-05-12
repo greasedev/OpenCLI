@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-05-11T14:51:11.153Z",
-  "json_file": "clis/twitter/bookmark-folders.json",
+  "timestamp": "2026-05-12T04:01:14.421Z",
+  "json_file": "./clis/twitter/bookmark-folders.json",
   "command": "BookmarkFolders",
   "website": "x.com",
   "params": {},
