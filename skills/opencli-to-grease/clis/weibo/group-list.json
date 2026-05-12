@@ -1,0 +1,30 @@
+{
+  "actions": [
+    {
+      "action": "open",
+      "argument": { "url": "https://weibo.com", "waitUntil": "load" }
+    },
+    {
+      "action": "wait",
+      "argument": { "timeMs": 2000 }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { const groups = []; const sidebar = document.querySelector('[class*=\"_side\"]') || document.querySelector('[class*=\"_main_mmtyp\"]'); if (!sidebar) return groups; const items = sidebar.querySelectorAll('div[class*=\"woo-box-flex\"]'); let foundCustomGroup = false; for (const item of items) { const txt = (item.innerText || '').trim(); const lines = txt.split('\\n'); const name = lines[0]; if (name === '自定义分组') { foundCustomGroup = true; continue; } if (name === '管理' || name === '') continue; if (name === '悄悄关注') break; if (foundCustomGroup && name && name.length < 20) { groups.push({ name }); } } return groups; }"
+      }
+    }
+  ],
+  "api_endpoint": "weibo-group-list",
+  "category": "scrape",
+  "description": "List Weibo follow groups from homepage sidebar",
+  "is_public": true,
+  "method": "GET",
+  "name": "GroupList",
+  "output_schema": [
+    { "name": "name", "type": "string", "description": "分组名称" }
+  ],
+  "variables": [],
+  "website_domain": "weibo.com",
+  "website_id": "website-weibo.com"
+}

@@ -17,10 +17,12 @@ Converts OpenCLI CLI commands to GreaseAI-compatible JSON format for browser aut
 ```
 skills/opencli-to-grease/
 ├── SKILL.md
-├── test.ts
 ├── package.json
 ├── tsconfig.json
-└── clis/                      # 输出目录，镜像 OpenCLI clis 结构
+├── scripts/                    # 工具脚本
+│   ├── test.ts                 # 测试脚本
+│   └── locate-element.ts       # 元素定位脚本
+└── clis/                       # 输出目录，镜像 OpenCLI clis 结构
     ├── zhihu/
     │   ├── hot.json
     │   ├── search.json
@@ -750,6 +752,53 @@ clis/zhihu/search.json    → clis/zhihu/search.test
    ```bash
    npm install -g @jackwener/opencli
    ```
+
+---
+
+## Element Locator (单步调试定位元素)
+
+使用 `scripts/locate-element.ts` 可以单步调试 API JSON，重新定位每个步骤的元素并获取精确的 selectors。
+
+### 使用方法
+
+```bash
+npx tsx scripts/locate-element.ts <json文件> <暂停步骤索引> [新target描述]
+```
+
+**参数说明**：
+- `<json文件>` - 目标 API 的 JSON 文件路径（从中提取前置步骤）
+- `<暂停步骤索引>` - 在第几步暂停并重新定位（从 0 开始）
+- `[新target描述]` - 可选，使用新的描述重新定位
+
+### 示例
+
+```bash
+# 定位 group-create.json 第3步的元素（管理按钮）
+npx tsx scripts/locate-element.ts clis/weibo/group-create.json 3
+
+# 用新的描述定位第5步（新建分组按钮）
+npx tsx scripts/locate-element.ts clis/weibo/group-create.json 5 "新建分组按钮"
+```
+
+### 输出结果
+
+脚本会输出定位到的 selectors 信息，格式如下：
+
+```
+Valid selectors for "自定义分组旁边的管理按钮": 
+  button.woo-button-main.woo-button-primary
+  button.woo-button-main:has(span.woo-button-content)
+  div.woo-panel-main button.woo-button-main
+```
+
+将这些 selectors 更新到对应 JSON 文件的 actions 中。
+
+### 工作流程
+
+1. 脚本读取 JSON 文件中的 actions
+2. 执行暂停步骤之前的所有前置步骤（使用已有的 selectors）
+3. 在暂停步骤处重新定位元素（让 LLM 生成新的 selectors）
+4. 输出定位结果
 
 ---
 
