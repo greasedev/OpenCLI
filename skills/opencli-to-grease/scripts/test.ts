@@ -556,12 +556,17 @@ async function main(): Promise<void> {
   let extractedData: unknown[] | null = null;
   if (taskResult?.extractData) {
     const parsed = JSON.parse(taskResult.extractData);
-    // extractData is an array of results from all evaluate actions
-    // The last evaluate result is the final processed data
+    // Check if parsed is an array of result objects (has status) or data array
     if (Array.isArray(parsed) && parsed.length > 0) {
-      // Take the last item as the final result
-      const lastResult = parsed[parsed.length - 1];
-      extractedData = Array.isArray(lastResult) ? lastResult : [lastResult];
+      const firstItem = parsed[0];
+      // If first item looks like a result object (has status field), take last result
+      if (firstItem && typeof firstItem === 'object' && 'status' in firstItem) {
+        const lastResult = parsed[parsed.length - 1];
+        extractedData = Array.isArray(lastResult) ? lastResult : [lastResult];
+      } else {
+        // Otherwise it's a data array, use directly
+        extractedData = parsed;
+      }
     } else {
       extractedData = parsed;
     }
