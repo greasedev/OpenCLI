@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-05-12T14:13:03.471Z",
+  "json_file": "clis/weibo/group-posts.json",
+  "command": "GroupPosts",
+  "website": "weibo.com",
+  "params": {
+    "group_id": "201207160998946111",
+    "count": 25
+  },
+  "success": false,
+  "data_count": 1,
+  "sample_data": [
+    {
+      "id": "5292044772969488",
+      "text": "忙完了<br />今晚20:00开个dy直播闲聊唠嗑<img alt=\"[挤眼]\" title=\"[挤眼]\" src=\"https://face.t.sinajs.cn/t4/appstyle/expression/ext/normal/dd/201810_jiyan_mobile.png\" /> ​​​",
+      "user_id": "1734741902",
+      "user_name": "王自如AI",
+      "created_at": "Sun Apr 26 20:07:38 +0800 2026"
+    }
+  ],
+  "comparison": {
+    "grease_count": 1,
+    "opencli_count": 0,
+    "match": false,
+    "differences": [
+      "OpenCLI failed: Command failed: opencli weibo group-posts \"201207160998946111\" --count \"25\" -f json 2>/dev/null\n"
+    ]
+  }
+}
