@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-05-12T12:51:28.842Z",
+  "json_file": "clis/weibo/group-set.json",
+  "command": "GroupSet",
+  "website": "weibo.com",
+  "params": {
+    "user_id": "5903980664",
+    "group_id": "201207160998946111",
+    "dryrun": false
+  },
+  "success": false,
+  "data_count": 0,
+  "comparison": {
+    "grease_count": 0,
+    "opencli_count": 0,
+    "match": false,
+    "differences": [
+      "GreaseAI returned no data"
+    ]
+  }
+}
