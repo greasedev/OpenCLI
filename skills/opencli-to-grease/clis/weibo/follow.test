@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-12T13:06:07.878Z",
+  "timestamp": "2026-05-12T13:14:58.086Z",
   "json_file": "clis/weibo/follow.json",
   "command": "Follow",
   "website": "weibo.com",
@@ -11,7 +11,7 @@
   "sample_data": [
     {
       "status": "success",
-      "message": "Follow button clicked",
+      "message": "Already following this user (no follow button found)",
       "user_id": "5903980664"
     }
   ],
