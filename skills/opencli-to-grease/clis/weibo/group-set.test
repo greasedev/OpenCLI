@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-12T12:51:28.842Z",
+  "timestamp": "2026-05-12T13:17:02.863Z",
   "json_file": "clis/weibo/group-set.json",
   "command": "GroupSet",
   "website": "weibo.com",
@@ -9,13 +9,21 @@
     "dryrun": false
   },
   "success": false,
-  "data_count": 0,
+  "data_count": 1,
+  "sample_data": [
+    {
+      "status": "error",
+      "message": "API error: 403 - <h2>403 Forbidden</h2>",
+      "user_id": "5903980664",
+      "group_id": "201207160998946111"
+    }
+  ],
   "comparison": {
-    "grease_count": 0,
+    "grease_count": 1,
     "opencli_count": 0,
     "match": false,
     "differences": [
-      "GreaseAI returned no data"
+      "OpenCLI failed: Command failed: opencli weibo group-set \"5903980664\" \"201207160998946111\" --dryrun \"false\" -f json 2>/dev/null\n"
     ]
   }
 }
