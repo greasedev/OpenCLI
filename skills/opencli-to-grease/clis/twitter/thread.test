@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-05-11T10:36:15.692Z",
-  "json_file": "clis/twitter/thread.json",
+  "timestamp": "2026-05-12T03:45:52.995Z",
+  "json_file": "./clis/twitter/thread.json",
   "command": "Thread",
   "website": "x.com",
   "params": {
@@ -14,8 +14,8 @@
       "id": "2044315118583066738",
       "author": "elonmusk",
       "text": "Congrats to the @Tesla_AI chip design team on taping out AI5!\n\nAI6, Dojo3 &amp; other exciting chips in work. https://t.co/hm54TdIzBx",
-      "likes": 120795,
-      "retweets": 13071,
+      "likes": 120756,
+      "retweets": 13068,
       "created_at": "Wed Apr 15 07:21:20 +0000 2026",
       "url": "https://x.com/elonmusk/status/2044315118583066738"
     },
@@ -53,7 +53,7 @@
       "id": "2052840004733346027",
       "author": "medusawalter",
       "text": "@elonmusk @elonumuskX @Tesla_AI Herzlichen Glückwunsch.",
-      "likes": 2,
+      "likes": 1,
       "retweets": 1,
       "in_reply_to": "2044315118583066738",
       "created_at": "Fri May 08 19:56:11 +0000 2026",

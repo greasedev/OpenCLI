@@ -1,28 +1,17 @@
 {
-  "timestamp": "2026-05-11T09:55:30.002Z",
-  "json_file": "clis/twitter/bookmarks.json",
+  "timestamp": "2026-05-12T03:46:08.901Z",
+  "json_file": "./clis/twitter/bookmarks.json",
   "command": "Bookmarks",
   "website": "x.com",
   "params": {
     "limit": 5
   },
   "success": true,
-  "data_count": 1,
-  "sample_data": [
-    {
-      "id": "2044315118583066738",
-      "author": "elonmusk",
-      "name": "Elon Musk",
-      "text": "Congrats to the @Tesla_AI chip design team on taping out AI5!\n\nAI6, Dojo3 &amp; other exciting chips in work. https://t.co/hm54TdIzBx",
-      "likes": 120796,
-      "retweets": 13076,
-      "created_at": "Wed Apr 15 07:21:20 +0000 2026",
-      "url": "https://x.com/elonmusk/status/2044315118583066738"
-    }
-  ],
+  "data_count": 0,
+  "sample_data": [],
   "comparison": {
-    "grease_count": 1,
-    "opencli_count": 1,
+    "grease_count": 0,
+    "opencli_count": 0,
     "match": true,
     "differences": []
   }

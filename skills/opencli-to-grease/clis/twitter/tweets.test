@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-05-11T15:04:26.700Z",
-  "json_file": "clis/twitter/tweets.json",
+  "timestamp": "2026-05-12T03:47:20.020Z",
+  "json_file": "./clis/twitter/tweets.json",
   "command": "Tweets",
   "website": "x.com",
   "params": {
@@ -8,14 +8,82 @@
     "limit": 5
   },
   "success": false,
-  "data_count": 0,
-  "sample_data": [],
+  "data_count": 5,
+  "sample_data": [
+    {
+      "id": "2054030050014687716",
+      "author": "elonmusk",
+      "created_at": "Tue May 12 02:45:00 +0000 2026",
+      "is_retweet": false,
+      "text": "RT @SpaceX: Falcon 9’s first stage lands on the Of Course I Still Love You droneship https://t.co/sZ8wCGEmWm",
+      "likes": 0,
+      "retweets": 596,
+      "replies": 0,
+      "views": "181",
+      "url": "https://x.com/i/status/2054030050014687716"
+    },
+    {
+      "id": "2054030016669970818",
+      "author": "elonmusk",
+      "created_at": "Tue May 12 02:44:52 +0000 2026",
+      "is_retweet": false,
+      "text": "RT @SpaceX: Watch Falcon 9 launch the @NRO_gov and @USSF_SSC’s NROL-172 mission from pad 4E in California  https://t.co/BObd0w7pm9",
+      "likes": 0,
+      "retweets": 442,
+      "replies": 0,
+      "views": "16",
+      "url": "https://x.com/i/status/2054030016669970818"
+    },
+    {
+      "id": "2053989674847481911",
+      "author": "elonmusk",
+      "created_at": "Tue May 12 00:04:34 +0000 2026",
+      "is_retweet": false,
+      "text": "RT @StateDept: Last week, the United States refused to participate in the UN’s review of the Global Compact on Migration.\n\nThe United State…",
+      "likes": 0,
+      "retweets": 9186,
+      "replies": 0,
+      "views": "111",
+      "url": "https://x.com/i/status/2053989674847481911"
+    },
+    {
+      "id": "2053988390178349186",
+      "author": "elonmusk",
+      "created_at": "Mon May 11 23:59:28 +0000 2026",
+      "is_retweet": false,
+      "text": "RT @SpaceX: Falcon 9 is vertical at pad 40 in Florida ahead of tomorrow’s launch of Dragon’s 34th Commercial Resupply Services mission to t…",
+      "likes": 0,
+      "retweets": 889,
+      "replies": 0,
+      "views": "106",
+      "url": "https://x.com/i/status/2053988390178349186"
+    },
+    {
+      "id": "2053954397802012934",
+      "author": "elonmusk",
+      "created_at": "Mon May 11 21:44:23 +0000 2026",
+      "is_retweet": false,
+      "text": "RT @SpaceX: Launch rehearsal complete. During a flight-like countdown, more than 5,000 metric tonnes (11+ million pounds) of propellant wer…",
+      "likes": 0,
+      "retweets": 3100,
+      "replies": 0,
+      "views": "373",
+      "url": "https://x.com/i/status/2053954397802012934"
+    }
+  ],
   "comparison": {
-    "grease_count": 0,
+    "grease_count": 5,
     "opencli_count": 5,
     "match": false,
     "differences": [
-      "Count mismatch: GreaseAI=0, OpenCLI=5"
+      "Item 1 \"is_retweet\": Grease=\"false\" vs OpenCLI=\"true\"",
+      "Item 1 \"retweets\": Grease=\"596\" vs OpenCLI=\"597\"",
+      "Item 1 \"url\": Grease=\"https://x.com/i/status/2054030050014687716\" vs OpenCLI=\"https://x.com/elonmusk/status/2054030050014687716\"",
+      "Item 2 \"is_retweet\": Grease=\"false\" vs OpenCLI=\"true\"",
+      "Item 2 \"retweets\": Grease=\"442\" vs OpenCLI=\"443\"",
+      "Item 2 \"url\": Grease=\"https://x.com/i/status/2054030016669970818\" vs OpenCLI=\"https://x.com/elonmusk/status/2054030016669970818\"",
+      "Item 3 \"is_retweet\": Grease=\"false\" vs OpenCLI=\"true\"",
+      "Item 3 \"url\": Grease=\"https://x.com/i/status/2053989674847481911\" vs OpenCLI=\"https://x.com/elonmusk/status/2053989674847481911\""
     ]
   }
 }

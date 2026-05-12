@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-05-11T10:35:12.413Z",
-  "json_file": "clis/twitter/article.json",
+  "timestamp": "2026-05-12T03:46:30.309Z",
+  "json_file": "./clis/twitter/article.json",
   "command": "Article",
   "website": "x.com",
   "params": {
@@ -22,7 +22,7 @@
     "opencli_count": 0,
     "match": false,
     "differences": [
-      "OpenCLI failed: Command failed: opencli twitter article \"2044315118583066738\"  -f json\nok: false\nerror:\n  code: COMMAND_EXEC\n  message: Tweet 2044315118583066738 has no article content\n  exitCode: 1\n"
+      "OpenCLI failed: Command failed: opencli twitter article \"2044315118583066738\"  -f json 2>/dev/null\n"
     ]
   }
 }
