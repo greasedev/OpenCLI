@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-12T04:01:05.946Z",
+  "timestamp": "2026-05-12T06:38:24.750Z",
   "json_file": "./clis/twitter/lists.json",
   "command": "Lists",
   "website": "x.com",
@@ -14,28 +14,32 @@
       "name": "LA Fire",
       "members": 68,
       "followers": 17916,
-      "mode": "public"
+      "mode": "public",
+      "type": "suggest_list_to_follow"
     },
     {
       "id": "1307414745629118464",
       "name": "Emergency",
       "members": 53,
-      "followers": 726,
-      "mode": "public"
+      "followers": 727,
+      "mode": "public",
+      "type": "suggest_list_to_follow"
     },
     {
       "id": "1245921263576477698",
       "name": "CA / SoCal",
       "members": 35,
-      "followers": 1236,
-      "mode": "public"
+      "followers": 1238,
+      "mode": "public",
+      "type": "suggest_list_to_follow"
     },
     {
       "id": "2046117032786378819",
       "name": "AI Signal",
       "members": 1,
       "followers": 0,
-      "mode": "public"
+      "mode": "public",
+      "type": "suggest_owned_subscribed_list"
     }
   ],
   "comparison": {

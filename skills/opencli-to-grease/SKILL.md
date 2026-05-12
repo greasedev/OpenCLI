@@ -154,17 +154,228 @@ npm run test -- ./clis/zhihu/question.json
 
 ## Action Types (GreaseAI)
 
-| Action | Argument | Purpose |
-|--------|----------|---------|
-| `open` | `{ url, waitUntil }` | Navigate to URL |
-| `evaluate` | `{ script }` | Execute JS, uses `async (intermediate) => {}` pattern |
-| `click` | `{ target }` | Click element by description |
-| `input` | `{ target, text, delay, withReturn }` | Type text into input |
-| `extract` | `{ target, contentType }` | Extract content |
-| `scroll` | `{ target }` | Scroll page or element |
-| `wait` | `{ target }` or `{ time }` | Wait for condition or time |
-| `goBack` | `{}` | Navigate back |
-| `close` | `{}` | Close page |
+Based on `driver-layer.d.ts` ActionType definitions:
+
+```typescript
+type ActionType = "click" | "close" | "evaluate" | "extract" | "extractList" | "goBack" | "input" | "open" | "refresh" | "screenshot" | "scroll" | "scrollTarget" | "wait" | "waitPage" | "waitTarget";
+```
+
+### ActionType Reference
+
+Based on `executeAction` implementation in driver-layer:
+
+| Action | Argument Fields | Purpose | Implementation |
+|--------|----------------|---------|----------------|
+| `open` | `url`, `waitUntil` | Navigate to URL | `automator.open(argument.url, argument.waitUntil)` |
+| `close` | `tab` | Close browser tab | `automator.close(argument.tab)` where tab: `"current" | "others" | "all"` |
+| `goBack` | - | Navigate back | `automator.goBack()` - no arguments needed |
+| `refresh` | - | Reload page | `automator.refresh()` - uses default params |
+| `screenshot` | - | Take screenshot | `automator.screenshot()` - returns `image_buffer` |
+| `click` | `target` + TargetElement | Click element | `automator.click(argument.target, action)` |
+| `scroll` | `location` | Scroll page | `automator.scroll(argument.location)` where location: `"top" | "bottom" | "nextPage" | "prevPage"` |
+| `scrollTarget` | `target` + TargetElement | Scroll element into view | `automator.scrollTarget(argument.target, action)` |
+| `input` | `target`, `text`, `delay`, `withReturn` | Type text | `automator.input(argument.target, argument.text, argument.delay || 1000, argument.withReturn || false, action)` |
+| `extract` | `target`, `contentType` + TargetElement | Extract single content | `automator.extract(argument.target, argument.contentType, action)` |
+| `extractList` | `target`, `contentType` + TargetElement | Extract list content | `automator.extractList(argument.target, argument.contentType, action)` - sets `isList: true` automatically |
+| `evaluate` | `script` | Execute JavaScript | `automator.evaluate(argument.script, context.globalVars)` - receives intermediate results |
+| `wait` | `timeMs` | Wait duration | `automator.wait(argument.timeMs)` - milliseconds |
+| `waitPage` | `loadState` | Wait for page state | `automator.waitPage(argument.loadState)` where loadState: `"load" | "domcontentloaded" | "networkidle"` |
+| `waitTarget` | `target` + TargetElement | Wait for element | `automator.waitTarget(argument.target, action)` |
+
+---
+
+## JSON File Specification
+
+Complete structure of GreaseAI JSON files:
+
+```json
+{
+  "actions": [GAction[]],
+  "api_endpoint": "string",
+  "category": "string",
+  "description": "string",
+  "is_public": "boolean",
+  "method": "GET|POST",
+  "name": "string",
+  "output_schema": [OutputField[]],
+  "variables": [Variable[]],
+  "website_domain": "string",
+  "website_id": "string"
+}
+```
+
+### actions Array
+
+Each action object (`GAction`) follows this structure:
+
+```typescript
+interface GAction {
+  action: ActionType;
+  argument: Record<string, any>;
+  // Optional TargetElement fields (for click, input, extract, etc.)
+  selectors?: Selector[];
+  xpath?: string;
+  isList?: boolean;
+}
+```
+
+#### Action Examples by Type
+
+**open action**:
+```json
+{
+  "action": "open",
+  "argument": {
+    "url": "https://example.com",
+    "waitUntil": "load"
+  }
+}
+```
+
+**close action**:
+```json
+{
+  "action": "close",
+  "argument": {
+    "tab": "current"
+  }
+}
+```
+
+**evaluate action**:
+```json
+{
+  "action": "evaluate",
+  "argument": {
+    "script": "async (intermediate) => { const data = await fetch('/api').then(r => r.json()); return { results: data }; }"
+  }
+}
+```
+
+**click action**:
+```json
+{
+  "action": "click",
+  "argument": {
+    "target": "Submit button"
+  }
+}
+```
+With selector targeting:
+```json
+{
+  "action": "click",
+  "argument": {
+    "target": "Submit button"
+  },
+  "selectors": [
+    { "selector": "button[type='submit']", "reason": "Submit button selector" }
+  ]
+}
+```
+
+**input action**:
+```json
+{
+  "action": "input",
+  "argument": {
+    "target": "Search input",
+    "text": "{{ query }}",
+    "delay": 100,
+    "withReturn": true
+  }
+}
+```
+
+**extract/extractList action**:
+```json
+{
+  "action": "extract",
+  "argument": {
+    "target": "Article content",
+    "contentType": "text"
+  }
+}
+```
+contentType options: `"text" | "link" | "markdown" | "html" | "all"`
+
+**scroll action**:
+```json
+{
+  "action": "scroll",
+  "argument": {
+    "location": "bottom"
+  }
+}
+```
+location options: `"top" | "bottom" | "nextPage" | "prevPage"`
+
+**wait/waitPage action**:
+```json
+{
+  "action": "wait",
+  "argument": {
+    "timeMs": 3000
+  }
+}
+```
+```json
+{
+  "action": "waitPage",
+  "argument": {
+    "loadState": "networkidle"
+  }
+}
+```
+
+### TargetElement Fields
+
+Actions that target elements can include optional targeting fields:
+
+```typescript
+interface TargetElement {
+  selectors?: Selector[];  // CSS selector array with descriptions
+  xpath?: string;          // XPath expression for precise targeting
+  isList?: boolean;        // Whether targeting multiple elements
+}
+
+interface Selector {
+  selector: string;        // CSS selector
+  isList?: boolean;        // Matches multiple elements
+  child_selector?: string; // Nested element targeting
+  reason?: string;         // Why this selector was chosen
+  nth?: number;            // Index for multiple matches
+}
+```
+
+### Template Variable Syntax
+
+| Syntax | Purpose | Replacement Timing | Used In |
+|--------|---------|-------------------|---------|
+| `{xxx}` | Task parameter | Before action execution (via `renderActionArgument`) | All actions except evaluate |
+| `{{ xxx }}` | Task parameter (double brace) | Before script execution (via `renderEvaluateArgument`) | evaluate scripts only |
+| `${xxx}` | Intermediate result | Before action execution (via `renderActionArgument`) | All actions except evaluate |
+
+**Key Implementation Details**:
+
+1. **For evaluate actions**: Template rendering uses `renderEvaluateArgument`:
+   - Only processes `{{ xxx }}` syntax
+   - Replaces with `context.taskParams` values
+   - `intermediate` parameter passed via `context.globalVars` (not template replacement)
+
+2. **For other actions**: Template rendering uses `renderActionArgument`:
+   - Processes both `{xxx}` and `${xxx}` syntax
+   - Merges `context.taskParams` + `context.globalVars` for replacement
+   - `{xxx}` → taskParams replacement
+   - `${xxx}` → globalVars (intermediate results) replacement
+
+3. **evaluate intermediate results flow**:
+   ```javascript
+   // After successful evaluate, results saved to globalVars:
+   if (response.success === "succeeded" && action.action === "evaluate" && response.extract_data) {
+     Object.assign(context.globalVars, response.extract_data);
+   }
+   ```
 
 ### evaluate Script Pattern (greasedev/automator@7024108)
 

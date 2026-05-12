@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-05-12T07:26:24.482Z",
+  "json_file": "./clis/twitter/list-remove.json",
+  "command": "ListRemove",
+  "website": "x.com",
+  "params": {
+    "list_id": "2046117032786378819",
+    "username": "elonmusk"
+  },
+  "success": false,
+  "data_count": 1,
+  "sample_data": [
+    {
+      "listId": "2046117032786378819",
+      "username": "elonmusk",
+      "userId": "44196397",
+      "status": "success",
+      "message": "Removed @elonmusk from list 2046117032786378819 (AI Signal)"
+    }
+  ],
+  "comparison": {
+    "grease_count": 1,
+    "opencli_count": 0,
+    "match": false,
+    "differences": [
+      "OpenCLI failed: Command failed: opencli twitter list-remove \"2046117032786378819\" \"elonmusk\"  -f json 2>/dev/null\n"
+    ]
+  }
+}
