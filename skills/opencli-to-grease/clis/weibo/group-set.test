@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-12T14:02:56.129Z",
+  "timestamp": "2026-05-12T14:05:48.904Z",
   "json_file": "clis/weibo/group-set.json",
   "command": "GroupSet",
   "website": "weibo.com",
@@ -12,8 +12,8 @@
   "data_count": 1,
   "sample_data": [
     {
-      "status": "error",
-      "message": "API error: 403 - <h2>403 Forbidden</h2>",
+      "status": "success",
+      "message": "User added to group",
       "user_id": "5903980664",
       "group_id": "201207160998946111"
     }
