@@ -35,7 +35,8 @@
     { "name": "members", "type": "number", "description": "成员数" },
     { "name": "followers", "type": "number", "description": "关注数" },
     { "name": "mode", "type": "string", "description": "模式(Public/Private)" },
-    { "name": "type", "type": "string", "description": "类型(suggest_list_to_follow/suggest_owned_subscribed_list)" }
+    { "name": "type", "type": "string", "description": "类型" },
+    { "name": "error", "type": "string", "description": "错误信息(可选)" }
   ],
   "variables": [
     { "name": "limit", "type": "int", "default": 50, "help": "Number of lists", "test": 5 }

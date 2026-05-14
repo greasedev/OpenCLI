@@ -40,7 +40,8 @@
     { "name": "tweets", "type": "number", "description": "推文数" },
     { "name": "likes", "type": "number", "description": "喜欢数" },
     { "name": "verified", "type": "boolean", "description": "认证" },
-    { "name": "created_at", "type": "string", "description": "创建时间" }
+    { "name": "created_at", "type": "string", "description": "创建时间" },
+    { "name": "error", "type": "string", "description": "错误信息(可选)" }
   ],
   "variables": [
     { "name": "username", "type": "string", "required": true, "help": "Twitter screen name (without @)", "test": "elonmusk" }

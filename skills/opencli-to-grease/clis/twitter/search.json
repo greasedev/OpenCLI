@@ -33,7 +33,8 @@
     { "name": "created_at", "type": "string", "description": "创建时间" },
     { "name": "likes", "type": "number", "description": "点赞数" },
     { "name": "views", "type": "string", "description": "浏览量" },
-    { "name": "url", "type": "string", "description": "链接" }
+    { "name": "url", "type": "string", "description": "链接" },
+    { "name": "error", "type": "string", "description": "错误信息(可选)" }
   ],
   "variables": [
     { "name": "query", "type": "string", "required": true, "help": "Search query", "test": "AI" },

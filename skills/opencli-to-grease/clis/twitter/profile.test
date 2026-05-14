@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-12T03:53:47.026Z",
+  "timestamp": "2026-05-14T00:31:18.238Z",
   "json_file": "./clis/twitter/profile.json",
   "command": "Profile",
   "website": "x.com",
@@ -15,20 +15,20 @@
       "bio": "https://t.co/dDtDyVssfm",
       "location": "",
       "url": "",
-      "followers": 239963069,
-      "following": 1324,
-      "tweets": 102356,
-      "likes": 226587,
+      "followers": 239884180,
+      "following": 1328,
+      "tweets": 102445,
+      "likes": 227029,
       "verified": true,
       "created_at": "Tue Jun 02 20:12:29 +0000 2009"
     }
   ],
   "comparison": {
     "grease_count": 1,
-    "opencli_count": 1,
+    "opencli_count": 0,
     "match": false,
     "differences": [
-      "Item 1 \"followers\": Grease=\"239963069\" vs OpenCLI=\"239963084\""
+      "OpenCLI failed: Command failed: opencli twitter profile \"elonmusk\"  -f json 2>/dev/null\n"
     ]
   }
 }

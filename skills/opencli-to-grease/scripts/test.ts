@@ -553,22 +553,92 @@ async function main(): Promise<void> {
 
   // Get debug task results
   const taskResult = getDebugTaskResult();
+  console.log('\nTask execution completed. Extracting results...');
   let extractedData: unknown[] | null = null;
   if (taskResult?.extractData) {
     const parsed = JSON.parse(taskResult.extractData);
-    // Check if parsed is an array of result objects (has status) or data array
+
     if (Array.isArray(parsed) && parsed.length > 0) {
-      const firstItem = parsed[0];
-      // If first item looks like a result object (has status field), take last result
-      if (firstItem && typeof firstItem === 'object' && 'status' in firstItem) {
-        const lastResult = parsed[parsed.length - 1];
-        extractedData = Array.isArray(lastResult) ? lastResult : [lastResult];
+      // If last action is evaluate, only take the last result
+      const lastAction = grease.actions[grease.actions.length - 1];
+      if (lastAction?.action === 'evaluate') {
+        const lastItem = parsed[parsed.length - 1];
+
+        // Check if lastItem is an array (e.g., [tweet1, tweet2, ...])
+        if (Array.isArray(lastItem)) {
+          extractedData = lastItem;
+        } else if (lastItem && typeof lastItem === 'object') {
+          // Check if lastItem is a data item (matches output_schema) vs intermediate result
+          const schemaFields = grease.output_schema?.map(f => f.name) || [];
+          const lastItemKeys = Object.keys(lastItem as Record<string, unknown>);
+
+          // Data item must have >50% of schema fields AND not be an intermediate container
+          const matchCount = schemaFields.filter(f => lastItemKeys.includes(f)).length;
+          const isDataItem = schemaFields.length > 0 &&
+            matchCount >= schemaFields.length * 0.5 &&
+            !lastItemKeys.includes('results') &&
+            !lastItemKeys.includes('queryIds') &&
+            !lastItemKeys.includes('profile') &&
+            !lastItemKeys.includes('ok') &&
+            !lastItemKeys.includes('userId');
+
+          if (isDataItem) {
+            // Array was flattened: [{results:...}, tweet1, tweet2, ...]
+            // Collect all data items from the end of parsed
+            const dataItems: unknown[] = [];
+            for (let i = parsed.length - 1; i >= 0; i--) {
+              const item = parsed[i];
+              if (item && typeof item === 'object') {
+                const itemKeys = Object.keys(item as Record<string, unknown>);
+                const itemMatchCount = schemaFields.filter(f => itemKeys.includes(f)).length;
+                // Stop when we hit an intermediate result object or non-data item
+                if (
+                  itemKeys.includes('results') ||
+                  itemKeys.includes('queryIds') ||
+                  itemKeys.includes('profile') ||
+                  itemKeys.includes('ok') ||
+                  itemKeys.includes('userId') ||
+                  itemMatchCount < schemaFields.length * 0.5
+                ) {
+                  break;
+                }
+                dataItems.unshift(item);
+              } else {
+                break;
+              }
+            }
+            extractedData = dataItems.length > 0 ? dataItems : [lastItem];
+          } else {
+            // Last item is intermediate result (e.g., {profile: ...})
+            // Take the last item as single result
+            extractedData = [lastItem];
+          }
+        } else {
+          extractedData = [lastItem];
+        }
       } else {
-        // Otherwise it's a data array, use directly
+        // Otherwise use all parsed data
         extractedData = parsed;
       }
     } else {
-      extractedData = parsed;
+      extractedData = Array.isArray(parsed) ? parsed : [parsed];
+    }
+
+    // Filter by output_schema - only keep defined fields
+    if (extractedData && grease.output_schema && grease.output_schema.length > 0) {
+      const schemaFields = grease.output_schema.map(f => f.name);
+      extractedData = extractedData.map(item => {
+        if (item && typeof item === 'object') {
+          const filtered: Record<string, unknown> = {};
+          for (const field of schemaFields) {
+            if (field in (item as Record<string, unknown>)) {
+              filtered[field] = (item as Record<string, unknown>)[field];
+            }
+          }
+          return filtered;
+        }
+        return item;
+      });
     }
   }
 

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-05-11T10:32:29.086Z",
-  "json_file": "clis/twitter/search.json",
+  "timestamp": "2026-05-14T00:31:53.793Z",
+  "json_file": "./clis/twitter/search.json",
   "command": "Search",
   "website": "x.com",
   "params": {
@@ -12,6 +12,33 @@
   "data_count": 5,
   "sample_data": [
     {
+      "id": "2054236506756370865",
+      "author": "AndrewYNg",
+      "text": "There will be no AI jobpocalypse.\n\nThe story that AI will lead to massive unemployment is stoking unnecessary fear. AI — like any other technology — does affect jobs, but telling overblown stories of large-scale unemployment is irresponsible and damaging. Let’s put a stop to it.",
+      "created_at": "2026-05-12T16:25:23.000Z",
+      "likes": "4.3K",
+      "views": "",
+      "url": "https://x.com/i/status/2054236506756370865"
+    },
+    {
+      "id": "2052050956272230577",
+      "author": "gs_ai_",
+      "text": "We are back. After one year of quiet building.\n\nIntroducing GENE-26.5, our first robotic brain that takes a major step toward human-level capability.\n\nFor years, robotics has struggled to learn from the world’s largest and valuable data source: Humans.\n\nSolving it means",
+      "created_at": "2026-05-06T15:40:47.000Z",
+      "likes": "5.7K",
+      "views": "",
+      "url": "https://x.com/i/status/2052050956272230577"
+    },
+    {
+      "id": "2054626219858293128",
+      "author": "sama",
+      "text": "codex is the best AI coding product and we want to make it easy to try.\n\nfor the next 30 days, we are giving companies that want to try switching over two months of free codex usage.",
+      "created_at": "2026-05-13T18:13:58.000Z",
+      "likes": "13K",
+      "views": "",
+      "url": "https://x.com/i/status/2054626219858293128"
+    },
+    {
       "id": "2051709028250915275",
       "author": "OpenAI",
       "text": "GPT-5.5 Instant is starting to roll out in ChatGPT.\n\nIt’s a big upgrade, giving you smarter, clearer, and more personalized answers in a warmer, more natural tone.\n\nAnd it's also more concise, which we heard you wanted. We think you'll love chatting with it.",
@@ -21,53 +48,21 @@
       "url": "https://x.com/i/status/2051709028250915275"
     },
     {
-      "id": "2052060350770515978",
-      "author": "xai",
-      "text": "SpaceXAI will provide @AnthropicAI with access to Colossus 1, one of the world’s largest and fastest-deployed AI supercomputers, to provide additional capacity for Claude → http://x.ai/news/anthropic-compute-partnership…",
-      "created_at": "2026-05-06T16:18:07.000Z",
-      "likes": "25K",
+      "id": "2054246119635300451",
+      "author": "GoogleDeepMind",
+      "text": "We’re reimagining a 50-year-old interface - the mouse pointer - with AI. \n\nThese experimental demos show how people can intuitively direct Gemini on their screens using motion, speech, and natural shorthand to get things done ",
+      "created_at": "2026-05-12T17:03:35.000Z",
+      "likes": "8K",
       "views": "",
-      "url": "https://x.com/i/status/2052060350770515978"
-    },
-    {
-      "id": "2049903687016063456",
-      "author": "GoogleAI",
-      "text": "Last week, we made Gemini Embedding 2, our first natively multimodal embedding model, available to the general public. Since then, developers have used it to build video analysis tools, visual shopping assistants, and more.\n\nBut you might be wondering... what is an embedding",
-      "created_at": "2026-04-30T17:28:19.000Z",
-      "likes": "2.4K",
-      "views": "",
-      "url": "https://x.com/i/status/2049903687016063456"
-    },
-    {
-      "id": "2052789253038592466",
-      "author": "GoogleAI",
-      "text": "Happy Friday! We’re officially 11 days away from I/O (but the launches keep rolling in). Here’s what happened this week:\n\n— The @googlehealth app, featuring a personalized health coach built with Gemini that uses your wearables, favorite health & fitness apps, and medical",
-      "created_at": "2026-05-08T16:34:31.000Z",
-      "likes": "661",
-      "views": "",
-      "url": "https://x.com/i/status/2052789253038592466"
-    },
-    {
-      "id": "2049886895530967534",
-      "author": "AndrewYNg",
-      "text": "How we prompt AI is very different in 2026 than 2022 when ChatGPT came out.\n\nI'm teaching a new course, AI Prompting for Everyone, to help you become an AI power user — whatever your current skill level.\n\nIt covers skills that apply across ChatGPT, Gemini, Claude, and other AI",
-      "created_at": "2026-04-30T16:21:35.000Z",
-      "likes": "4.4K",
-      "views": "",
-      "url": "https://x.com/i/status/2049886895530967534"
+      "url": "https://x.com/i/status/2054246119635300451"
     }
   ],
   "comparison": {
     "grease_count": 5,
-    "opencli_count": 5,
+    "opencli_count": 0,
     "match": false,
     "differences": [
-      "Item 1 \"created_at\": Grease=\"2026-05-05T17:02:05.000Z\" vs OpenCLI=\"Tue May 05 17:02:05 +0000 2026\"",
-      "Item 1 \"likes\": Grease=\"10K\" vs OpenCLI=\"10678\"",
-      "Item 2 \"created_at\": Grease=\"2026-05-06T16:18:07.000Z\" vs OpenCLI=\"Wed May 06 16:18:07 +0000 2026\"",
-      "Item 2 \"likes\": Grease=\"25K\" vs OpenCLI=\"25127\"",
-      "Item 3 \"created_at\": Grease=\"2026-04-30T17:28:19.000Z\" vs OpenCLI=\"Thu Apr 30 17:28:19 +0000 2026\"",
-      "Item 3 \"likes\": Grease=\"2.4K\" vs OpenCLI=\"2498\""
+      "OpenCLI failed: Command failed: opencli twitter search \"AI\" --limit 5 --filter \"top\" -f json 2>/dev/null\n"
     ]
   }
 }
