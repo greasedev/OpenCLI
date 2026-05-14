@@ -1,0 +1,47 @@
+{
+  "actions": [
+    {
+      "action": "open",
+      "argument": { "url": "https://x.com/i/lists/{{ list_id }}", "waitUntil": "load" }
+    },
+    {
+      "action": "wait",
+      "argument": { "timeMs": 2000 }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { const listId = '{{ list_id }}'; const limit = {{ limit }} || 20; const ct0 = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('ct0='))?.split('=')[1]; if (!ct0) return { error: 'Not logged into x.com (no ct0 cookie)' }; const bearer = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA'; const headers = { 'Authorization': 'Bearer ' + decodeURIComponent(bearer), 'X-Csrf-Token': ct0, 'X-Twitter-Auth-Type': 'OAuth2Session', 'X-Twitter-Active-User': 'yes', 'Content-Type': 'application/json' }; const variables = { listId, count: limit }; const features = { rweb_video_screen_enabled: false, rweb_cashtags_enabled: true, profile_label_improvements_pcf_label_in_post_enabled: true, responsive_web_profile_redirect_enabled: false, rweb_tipjar_consumption_enabled: false, verified_phone_label_enabled: false, creator_subscriptions_tweet_preview_api_enabled: true, responsive_web_graphql_timeline_navigation_enabled: true, responsive_web_graphql_skip_user_profile_image_extensions_enabled: false, premium_content_api_read_enabled: false, communities_web_enable_tweet_community_results_fetch: true, c9s_tweet_anatomy_moderator_badge_enabled: true, responsive_web_grok_analyze_button_fetch_trends_enabled: false, responsive_web_grok_analyze_post_followups_enabled: true, rweb_cashtags_composer_attachment_enabled: true, responsive_web_jetfuel_frame: true, responsive_web_grok_share_attachment_enabled: true, responsive_web_grok_annotations_enabled: true, articles_preview_enabled: true, responsive_web_edit_tweet_api_enabled: true, rweb_conversational_replies_downvote_enabled: false, graphql_is_translatable_rweb_tweet_is_translatable_enabled: true, view_counts_everywhere_api_enabled: true, longform_notetweets_consumption_enabled: true, responsive_web_twitter_article_tweet_consumption_enabled: true, content_disclosure_indicator_enabled: true, content_disclosure_ai_generated_indicator_enabled: true, responsive_web_grok_show_grok_translated_post: true, responsive_web_grok_analysis_button_from_backend: true, post_ctas_fetch_enabled: true, freedom_of_speech_not_reach_fetch_enabled: true, standardized_nudges_misinfo: true, tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled: true, longform_notetweets_rich_text_read_enabled: true, longform_notetweets_inline_media_enabled: false, responsive_web_grok_image_annotation_enabled: true, responsive_web_grok_imagine_annotation_enabled: true, responsive_web_grok_community_note_auto_translation_is_enabled: true, responsive_web_enhance_cards_enabled: false }; const url = '/i/api/graphql/oIetCo19avgStX4mOnGsPg/ListMembers?variables=' + encodeURIComponent(JSON.stringify(variables)) + '&features=' + encodeURIComponent(JSON.stringify(features)); const resp = await fetch(url, { headers, credentials: 'include' }); if (!resp.ok) return { error: 'HTTP ' + resp.status + ' ' + resp.statusText }; const data = await resp.json(); const instructions = data?.data?.list?.members_timeline?.timeline?.instructions || []; const results = []; const seen = new Set(); for (const inst of instructions) { if (!inst.entries) continue; for (const entry of inst.entries) { const user = entry?.content?.itemContent?.user_results?.result; if (!user) continue; const id = user?.rest_id || user?.id; if (!id || seen.has(id)) continue; seen.add(id); const legacy = user?.legacy || {}; const core = user?.core || {}; results.push({ id: String(id), username: core?.screen_name || legacy?.screen_name || '', name: core?.name || legacy?.name || '', bio: legacy?.description || '', followers: legacy?.followers_count || 0, following: legacy?.friends_count || 0, verified: user?.is_blue_verified || legacy?.verified || false, url: 'https://x.com/' + (core?.screen_name || legacy?.screen_name || '') }); if (results.length >= limit) break; } } return { results }; }"
+      }
+    },
+    {
+      "action": "evaluate",
+      "argument": {
+        "script": "async (intermediate) => { if (intermediate.error) return [{ id: '', username: '', name: '', bio: '', followers: 0, following: 0, verified: false, url: '', error: intermediate.error }]; return intermediate.results || []; }"
+      }
+    }
+  ],
+  "api_endpoint": "twitter-list-members",
+  "category": "auth",
+  "description": "Get members of a Twitter/X list",
+  "is_public": true,
+  "method": "GET",
+  "name": "ListMembers",
+  "output_schema": [
+    { "name": "id", "type": "string", "description": "用户ID" },
+    { "name": "username", "type": "string", "description": "用户名" },
+    { "name": "name", "type": "string", "description": "昵称" },
+    { "name": "bio", "type": "string", "description": "简介" },
+    { "name": "followers", "type": "number", "description": "粉丝数" },
+    { "name": "following", "type": "number", "description": "关注数" },
+    { "name": "verified", "type": "boolean", "description": "认证状态" },
+    { "name": "url", "type": "string", "description": "用户链接" },
+    { "name": "error", "type": "string", "description": "错误信息(可选)" }
+  ],
+  "variables": [
+    { "name": "list_id", "type": "string", "required": true, "help": "List ID to fetch members from", "test": "1585430245762441216" },
+    { "name": "limit", "type": "int", "default": 20, "help": "Number of members to fetch", "test": 5 }
+  ],
+  "website_domain": "x.com",
+  "website_id": "website-x.com"
+}
