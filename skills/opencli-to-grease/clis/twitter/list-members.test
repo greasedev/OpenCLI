@@ -1,64 +1,69 @@
 {
-  "timestamp": "2026-05-14T13:47:55.018Z",
+  "timestamp": "2026-05-15T08:47:21.430Z",
   "json_file": "./clis/twitter/list-members.json",
   "command": "ListMembers",
   "website": "x.com",
   "params": {
-    "list_id": "1585430245762441216",
-    "limit": 5
+    "list_id": "1179844739765620744",
+    "limit": 150
   },
   "success": true,
-  "data_count": 5,
+  "data_count": 100,
   "sample_data": [
     {
-      "id": "2024518793679294464",
-      "username": "ClaudeDevs",
-      "name": "ClaudeDevs",
-      "bio": "Official updates for developers building with @ClaudeAI",
-      "followers": 412564,
-      "following": 2,
-      "verified": true,
-      "url": "https://x.com/ClaudeDevs"
-    },
-    {
-      "id": "2008226291535970305",
-      "username": "tinkerapi",
-      "name": "Tinker",
-      "bio": "I tink, therefore I am.\nPost-training API by @thinkymachines",
-      "followers": 7549,
-      "following": 1,
-      "verified": true,
-      "url": "https://x.com/tinkerapi"
-    },
-    {
-      "id": "1945021453617057792",
-      "username": "jon_lee0",
-      "name": "Jonathan Lee",
-      "bio": "research @GoogleDeepMind. co-developed gemini deep think. co-led model training for IMO 🥇 |  prev: RL PhD at @StanfordAILab",
-      "followers": 925,
-      "following": 141,
+      "id": "1665270727572967424",
+      "username": "theresanaiforit",
+      "name": "There's An AI For That",
+      "bio": "🥇 The #1 website for AI tools.\n\n➡️ Submit your AI tool: https://t.co/5cnnp2uURj\n\n🚀 Sponsor us: https://t.co/We1agMQ9UO",
+      "followers": 35405,
+      "following": 20,
       "verified": false,
-      "url": "https://x.com/jon_lee0"
+      "url": "https://x.com/theresanaiforit",
+      "next_cursor": ""
     },
     {
-      "id": "1933194590171049984",
-      "username": "Linatawfik9",
-      "name": "Linatawfik",
-      "bio": "",
-      "followers": 1296,
-      "following": 23,
-      "verified": false,
-      "url": "https://x.com/Linatawfik9"
-    },
-    {
-      "id": "1931962509596246016",
-      "username": "ZhihuFrontier",
-      "name": "Zhihu Frontier",
-      "bio": "🚀Bringing China's AI & tech trends, voices and perspectives to the global stage.\n⚡️Powered by 知乎/https://t.co/OkIemRZdcj, China's leading knowledge community.",
-      "followers": 4887,
-      "following": 148,
+      "id": "1573710710852489216",
+      "username": "AiBreakfast",
+      "name": "AI Breakfast",
+      "bio": "The latest rumors and developments in the world of artificial intelligence.  DM to include your AI project in the email newsletter with 100k subscribers!",
+      "followers": 234731,
+      "following": 580,
       "verified": true,
-      "url": "https://x.com/ZhihuFrontier"
+      "url": "https://x.com/AiBreakfast",
+      "next_cursor": ""
+    },
+    {
+      "id": "1546624215628910592",
+      "username": "ai__pub",
+      "name": "AI Pub",
+      "bio": "AI papers and AI research explained, for technical people. Get hired by the best AI companies: https://t.co/MySVjUGOQ3",
+      "followers": 71639,
+      "following": 340,
+      "verified": true,
+      "url": "https://x.com/ai__pub",
+      "next_cursor": ""
+    },
+    {
+      "id": "1544387652811493377",
+      "username": "mreflow",
+      "name": "Matt Wolfe",
+      "bio": "AI Tools Database: https://t.co/mmVmxk3buH\n\nAI News & Commentary: https://t.co/vUwzYBzCxO",
+      "followers": 114508,
+      "following": 1435,
+      "verified": true,
+      "url": "https://x.com/mreflow",
+      "next_cursor": ""
+    },
+    {
+      "id": "1527649679227355138",
+      "username": "javilopen",
+      "name": "Javi Lopez ⛩️",
+      "bio": "Founder at @Magnific_AI (acq. by @Magnific formerly @freepik)",
+      "followers": 127932,
+      "following": 2077,
+      "verified": true,
+      "url": "https://x.com/javilopen",
+      "next_cursor": ""
     }
   ]
 }
