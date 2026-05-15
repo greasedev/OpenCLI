@@ -568,21 +568,43 @@ async function main(): Promise<void> {
         if (Array.isArray(lastItem)) {
           extractedData = lastItem;
         } else if (lastItem && typeof lastItem === 'object') {
-          // Check if lastItem is a data item (matches output_schema) vs intermediate result
           const schemaFields = grease.output_schema?.map(f => f.name) || [];
           const lastItemKeys = Object.keys(lastItem as Record<string, unknown>);
 
-          // Data item must have >50% of schema fields AND not be an intermediate container
-          const matchCount = schemaFields.filter(f => lastItemKeys.includes(f)).length;
-          const isDataItem = schemaFields.length > 0 &&
-            matchCount >= schemaFields.length * 0.5 &&
-            !lastItemKeys.includes('results') &&
-            !lastItemKeys.includes('queryIds') &&
-            !lastItemKeys.includes('profile') &&
-            !lastItemKeys.includes('ok') &&
-            !lastItemKeys.includes('userId');
+          // Check if lastItem is a pagination marker (next_cursor, error, etc.)
+          const isPaginationItem = lastItemKeys.includes('next_cursor') || lastItemKeys.includes('error');
 
-          if (isDataItem) {
+          // Check if lastItem is an intermediate result container
+          const isIntermediateContainer =
+            lastItemKeys.includes('results') ||
+            lastItemKeys.includes('queryIds') ||
+            lastItemKeys.includes('profile') ||
+            lastItemKeys.includes('ok') ||
+            lastItemKeys.includes('userId') ||
+            lastItemKeys.includes('data');
+
+          // Data item must have >50% of schema fields
+          const matchCount = schemaFields.filter(f => lastItemKeys.includes(f)).length;
+          const isDataItem = schemaFields.length > 0 && matchCount >= schemaFields.length * 0.5;
+
+          if (isPaginationItem && !isIntermediateContainer) {
+            // Last item is pagination marker, collect all preceding data items + pagination
+            // Skip intermediate result containers like {results:...}
+            const dataItems: unknown[] = [];
+            for (let i = 0; i < parsed.length; i++) {
+              const item = parsed[i];
+              if (item && typeof item === 'object') {
+                const itemKeys = Object.keys(item as Record<string, unknown>);
+                // Items with 'results' key are intermediate containers from first evaluate - skip them
+                const itemIsIntermediateContainer = itemKeys.includes('results');
+                // Skip intermediate containers, include data items and pagination markers
+                if (!itemIsIntermediateContainer) {
+                  dataItems.push(item);
+                }
+              }
+            }
+            extractedData = dataItems;
+          } else if (isDataItem && !isIntermediateContainer) {
             // Array was flattened: [{results:...}, tweet1, tweet2, ...]
             // Collect all data items from the end of parsed
             const dataItems: unknown[] = [];
@@ -591,26 +613,42 @@ async function main(): Promise<void> {
               if (item && typeof item === 'object') {
                 const itemKeys = Object.keys(item as Record<string, unknown>);
                 const itemMatchCount = schemaFields.filter(f => itemKeys.includes(f)).length;
-                // Stop when we hit an intermediate result object or non-data item
-                if (
+                const itemIsPagination = itemKeys.includes('next_cursor') || itemKeys.includes('error');
+                const itemIsIntermediate =
                   itemKeys.includes('results') ||
                   itemKeys.includes('queryIds') ||
                   itemKeys.includes('profile') ||
                   itemKeys.includes('ok') ||
                   itemKeys.includes('userId') ||
-                  itemMatchCount < schemaFields.length * 0.5
-                ) {
+                  itemKeys.includes('data');
+                // Stop when we hit an intermediate result object
+                if (itemIsIntermediate && !itemIsPagination) {
                   break;
                 }
-                dataItems.unshift(item);
+                // Include data items and pagination markers
+                if (itemMatchCount >= schemaFields.length * 0.5 || itemIsPagination) {
+                  dataItems.unshift(item);
+                } else {
+                  break;
+                }
               } else {
                 break;
               }
             }
             extractedData = dataItems.length > 0 ? dataItems : [lastItem];
+          } else if (isIntermediateContainer) {
+            // Last item is intermediate result (e.g., {profile: ...}, {results: ...})
+            // Extract data from the container if possible
+            const container = lastItem as Record<string, unknown>;
+            if (container.profile) {
+              extractedData = [container.profile];
+            } else if (container.results && Array.isArray(container.results)) {
+              extractedData = container.results;
+            } else {
+              extractedData = [lastItem];
+            }
           } else {
-            // Last item is intermediate result (e.g., {profile: ...})
-            // Take the last item as single result
+            // Last item is single data result
             extractedData = [lastItem];
           }
         } else {
