@@ -1,19 +1,377 @@
 {
-  "timestamp": "2026-05-11T14:51:26.448Z",
+  "timestamp": "2026-05-16T03:34:25.498Z",
   "json_file": "clis/twitter/list-tweets.json",
   "command": "ListTweets",
   "website": "x.com",
   "params": {
-    "list_id": "1893180650434252969",
+    "list_id": "2046117032786378819",
     "limit": 5
   },
-  "success": true,
-  "data_count": 0,
-  "sample_data": [],
+  "success": false,
+  "data_count": 5,
+  "sample_data": [
+    {
+      "id": "2055472350498607593",
+      "user": {
+        "id": "44196397",
+        "name": "Elon Musk",
+        "screen_name": "elonmusk",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
+        "is_verified": true,
+        "description": "https://t.co/dDtDyVssfm",
+        "followers_count": 239881975,
+        "location": ""
+      },
+      "text": "RT @SpaceX: Liftoff! https://t.co/yJiqq5AvmX",
+      "likes": 0,
+      "retweets": 1125,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "created_at": "Sat May 16 02:16:11 +0000 2026",
+      "lang": "en",
+      "conversation_id": "2055472350498607593",
+      "url": "https://x.com/i/status/2055472350498607593",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2055409493626761216/img/T3bvto3pmg6-296b.jpg",
+          "display_url": "pic.x.com/yJiqq5AvmX",
+          "expanded_url": "https://x.com/SpaceX/status/2055409571900883167/video/1",
+          "width": 3840,
+          "height": 2160,
+          "duration_ms": 26530,
+          "video_url": "https://video.twimg.com/amplify_video/2055409493626761216/vid/avc1/3840x2160/uQLBdJIXdeyD-ARI.mp4?tag=27",
+          "bitrate": 25128000
+        }
+      ],
+      "hashtags": [],
+      "mentions": [
+        {
+          "id": "34743251",
+          "name": "SpaceX",
+          "screen_name": "SpaceX"
+        }
+      ],
+      "urls": [],
+      "is_retweet": true,
+      "retweeted_tweet": {
+        "id": "2055409571900883167",
+        "user": {
+          "id": "34743251",
+          "name": "SpaceX",
+          "screen_name": "SpaceX",
+          "avatar_url": "https://pbs.twimg.com/profile_images/1697749409851985920/HbrI04tM_normal.jpg",
+          "is_verified": true,
+          "description": "SpaceX designs, manufactures and launches the world’s most advanced rockets and spacecraft",
+          "followers_count": 41668537,
+          "location": ""
+        },
+        "text": "Liftoff! https://t.co/yJiqq5AvmX",
+        "likes": 8511,
+        "retweets": 1125,
+        "replies": 480,
+        "quotes": 46,
+        "bookmarks": 215,
+        "created_at": "Fri May 15 22:06:44 +0000 2026",
+        "lang": "en",
+        "conversation_id": "2055409571900883167",
+        "url": "https://x.com/i/status/2055409571900883167",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/amplify_video_thumb/2055409493626761216/img/T3bvto3pmg6-296b.jpg",
+            "display_url": "pic.x.com/yJiqq5AvmX",
+            "expanded_url": "https://x.com/SpaceX/status/2055409571900883167/video/1",
+            "width": 3840,
+            "height": 2160,
+            "duration_ms": 26530,
+            "video_url": "https://video.twimg.com/amplify_video/2055409493626761216/vid/avc1/3840x2160/uQLBdJIXdeyD-ARI.mp4?tag=27",
+            "bitrate": 25128000
+          }
+        ],
+        "hashtags": [],
+        "mentions": [],
+        "urls": []
+      }
+    },
+    {
+      "id": "2055472238363889851",
+      "user": {
+        "id": "44196397",
+        "name": "Elon Musk",
+        "screen_name": "elonmusk",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
+        "is_verified": true,
+        "description": "https://t.co/dDtDyVssfm",
+        "followers_count": 239881975,
+        "location": ""
+      },
+      "text": "RT @emirates: The Emirates A380 continues to raise the bar for what flying should be. And with @Starlink now onboard our first A380, we're…",
+      "likes": 0,
+      "retweets": 386,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "created_at": "Sat May 16 02:15:45 +0000 2026",
+      "lang": "en",
+      "conversation_id": "2055472238363889851",
+      "url": "https://x.com/i/status/2055472238363889851",
+      "media": [],
+      "hashtags": [],
+      "mentions": [
+        {
+          "id": "821045162",
+          "name": "Emirates",
+          "screen_name": "emirates"
+        },
+        {
+          "id": "1330170106501079041",
+          "name": "Starlink",
+          "screen_name": "Starlink"
+        }
+      ],
+      "urls": [],
+      "is_retweet": true,
+      "retweeted_tweet": {
+        "id": "2055166286951252388",
+        "user": {
+          "id": "821045162",
+          "name": "Emirates",
+          "screen_name": "emirates",
+          "avatar_url": "https://pbs.twimg.com/profile_images/1494641735414157317/-6INOOqR_normal.jpg",
+          "is_verified": true,
+          "description": "#FlyBetter. Need help? Send a comment or DM to @EmiratesSupport.",
+          "followers_count": 1743245,
+          "location": ""
+        },
+        "text": "The Emirates A380 continues to raise the bar for what flying should be. And with @Starlink now onboard our first A380, we're delivering unbelievable connectivity throughout your journey. 🤩 https://t.co/pqmDCXaJXR",
+        "likes": 2815,
+        "retweets": 386,
+        "replies": 169,
+        "quotes": 30,
+        "bookmarks": 77,
+        "created_at": "Fri May 15 06:00:00 +0000 2026",
+        "lang": "en",
+        "conversation_id": "2055166286951252388",
+        "url": "https://x.com/i/status/2055166286951252388",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HISRNSmWUAAukdm.jpg",
+            "display_url": "pic.x.com/pqmDCXaJXR",
+            "expanded_url": "https://x.com/emirates/status/2055166286951252388/photo/1",
+            "width": 1090,
+            "height": 1360
+          }
+        ],
+        "hashtags": [],
+        "mentions": [
+          {
+            "id": "1330170106501079041",
+            "name": "Starlink",
+            "screen_name": "Starlink"
+          }
+        ],
+        "urls": []
+      }
+    },
+    {
+      "id": "2055356699595493878",
+      "user": {
+        "id": "44196397",
+        "name": "Elon Musk",
+        "screen_name": "elonmusk",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
+        "is_verified": true,
+        "description": "https://t.co/dDtDyVssfm",
+        "followers_count": 239881975,
+        "location": ""
+      },
+      "text": "RT @greekcitytimes: Nolan’s Odyssey Problem: Diversity Without Greeks Is Not Diversity https://t.co/RqALrFzJEx https://t.co/j4wxEYAW7j",
+      "likes": 0,
+      "retweets": 1758,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "created_at": "Fri May 15 18:36:38 +0000 2026",
+      "lang": "en",
+      "conversation_id": "2055356699595493878",
+      "url": "https://x.com/i/status/2055356699595493878",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HIUY01haMAACoyy.jpg",
+          "display_url": "pic.x.com/j4wxEYAW7j",
+          "expanded_url": "https://x.com/greekcitytimes/status/2055076103870636269/photo/1",
+          "width": 1408,
+          "height": 768
+        }
+      ],
+      "hashtags": [],
+      "mentions": [
+        {
+          "id": "727431343240400896",
+          "name": "Greek City Times",
+          "screen_name": "greekcitytimes"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "greekcitytimes.com/2026/05/15/nol…",
+          "expanded_url": "https://greekcitytimes.com/2026/05/15/nolans-odyssey-problem-diversity-without-greeks-is-not-diversity/"
+        }
+      ],
+      "is_retweet": true,
+      "retweeted_tweet": {
+        "id": "2055076103870636269",
+        "user": {
+          "id": "727431343240400896",
+          "name": "Greek City Times",
+          "screen_name": "greekcitytimes",
+          "avatar_url": "https://pbs.twimg.com/profile_images/748689517964505088/obPQrkSD_normal.jpg",
+          "is_verified": true,
+          "description": "World's leading Greek News and lifestyle website. Download our Free app from the App store now. 🇬🇷🇨🇾  Facebook https://t.co/O4ym49GhOb",
+          "followers_count": 29667,
+          "location": ""
+        },
+        "text": "Nolan’s Odyssey Problem: Diversity Without Greeks Is Not Diversity https://t.co/RqALrFzJEx https://t.co/j4wxEYAW7j",
+        "likes": 12165,
+        "retweets": 1758,
+        "replies": 575,
+        "quotes": 88,
+        "bookmarks": 492,
+        "created_at": "Fri May 15 00:01:39 +0000 2026",
+        "lang": "en",
+        "conversation_id": "2055076103870636269",
+        "url": "https://x.com/i/status/2055076103870636269",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HIUY01haMAACoyy.jpg",
+            "display_url": "pic.x.com/j4wxEYAW7j",
+            "expanded_url": "https://x.com/greekcitytimes/status/2055076103870636269/photo/1",
+            "width": 1408,
+            "height": 768
+          }
+        ],
+        "hashtags": [],
+        "mentions": [],
+        "urls": [
+          {
+            "display_url": "greekcitytimes.com/2026/05/15/nol…",
+            "expanded_url": "https://greekcitytimes.com/2026/05/15/nolans-odyssey-problem-diversity-without-greeks-is-not-diversity/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2055356452286640630",
+      "user": {
+        "id": "1605",
+        "name": "Sam Altman",
+        "screen_name": "sama",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2046764873200394240/r7BxVezs_normal.jpg",
+        "is_verified": true,
+        "description": "AI is cool i guess",
+        "followers_count": 4830563,
+        "location": ""
+      },
+      "text": "i appreciate how seriously the team always takes these reports (even when the answer turns out to be 'i got used to the current level of magic and now i'd like more please')",
+      "likes": 2994,
+      "retweets": 82,
+      "replies": 521,
+      "quotes": 35,
+      "bookmarks": 135,
+      "created_at": "Fri May 15 18:35:39 +0000 2026",
+      "lang": "en",
+      "conversation_id": "2055356452286640630",
+      "url": "https://x.com/i/status/2055356452286640630",
+      "media": [],
+      "hashtags": [],
+      "mentions": [],
+      "urls": []
+    },
+    {
+      "id": "2055355611848802803",
+      "user": {
+        "id": "1605",
+        "name": "Sam Altman",
+        "screen_name": "sama",
+        "avatar_url": "https://pbs.twimg.com/profile_images/2046764873200394240/r7BxVezs_normal.jpg",
+        "is_verified": true,
+        "description": "AI is cool i guess",
+        "followers_count": 4830563,
+        "location": ""
+      },
+      "text": "RT @ChatGPTapp: A preview for Pro users: a new personal finance experience in ChatGPT.\n\nPro users in the U.S. can securely connect financia…",
+      "likes": 0,
+      "retweets": 1015,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "created_at": "Fri May 15 18:32:19 +0000 2026",
+      "lang": "en",
+      "conversation_id": "2055355611848802803",
+      "url": "https://x.com/i/status/2055355611848802803",
+      "media": [],
+      "hashtags": [],
+      "mentions": [
+        {
+          "id": "1714438092655149056",
+          "name": "ChatGPT",
+          "screen_name": "ChatGPTapp"
+        }
+      ],
+      "urls": [],
+      "is_retweet": true,
+      "retweeted_tweet": {
+        "id": "2055317612687675545",
+        "user": {
+          "id": "1714438092655149056",
+          "name": "ChatGPT",
+          "screen_name": "ChatGPTapp",
+          "avatar_url": "https://pbs.twimg.com/profile_images/2051538676589682688/Y20UCtF5_normal.png",
+          "is_verified": true,
+          "description": "ChatGPT is for the people.",
+          "followers_count": 557576,
+          "location": ""
+        },
+        "text": "A preview for Pro users: a new personal finance experience in ChatGPT.\n\nPro users in the U.S. can securely connect financial accounts, see where their money is going, and ask questions based on the information they choose to connect.\n\nYour full financial picture, now in ChatGPT. https://t.co/NjbJqOqFRi",
+        "likes": 17472,
+        "retweets": 1015,
+        "replies": 890,
+        "quotes": 1398,
+        "bookmarks": 8420,
+        "created_at": "Fri May 15 16:01:19 +0000 2026",
+        "lang": "en",
+        "conversation_id": "2055317612687675545",
+        "url": "https://x.com/i/status/2055317612687675545",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/amplify_video_thumb/2055317162185916416/img/roP6PKPCCCraCr7a.jpg",
+            "display_url": "pic.x.com/NjbJqOqFRi",
+            "expanded_url": "https://x.com/ChatGPTapp/status/2055317612687675545/video/1",
+            "width": 1920,
+            "height": 1080,
+            "duration_ms": 53000,
+            "video_url": "https://video.twimg.com/amplify_video/2055317162185916416/vid/avc1/1920x1080/YN2fJMNL-tNWfbZe.mp4?tag=27",
+            "bitrate": 10368000
+          }
+        ],
+        "hashtags": [],
+        "mentions": [],
+        "urls": []
+      }
+    }
+  ],
   "comparison": {
-    "grease_count": 0,
+    "grease_count": 5,
     "opencli_count": 0,
-    "match": true,
-    "differences": []
+    "match": false,
+    "differences": [
+      "OpenCLI failed: Command failed: opencli twitter list-tweets \"2046117032786378819\" --limit 5 -f json 2>/dev/null\n"
+    ]
   }
 }
