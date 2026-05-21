@@ -40,7 +40,7 @@ import {
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
-config({ path: resolve(__dirname, '.env') });
+config({ path: resolve(__dirname, '../.env') });
 
 const execAsync = promisify(exec);
 
@@ -558,110 +558,19 @@ async function main(): Promise<void> {
   if (taskResult?.extractData) {
     const parsed = JSON.parse(taskResult.extractData);
 
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      // If last action is evaluate, only take the last result
-      const lastAction = grease.actions[grease.actions.length - 1];
-      if (lastAction?.action === 'evaluate') {
-        const lastItem = parsed[parsed.length - 1];
-
-        // Check if lastItem is an array (e.g., [tweet1, tweet2, ...])
-        if (Array.isArray(lastItem)) {
-          extractedData = lastItem;
-        } else if (lastItem && typeof lastItem === 'object') {
-          const schemaFields = grease.output_schema?.map(f => f.name) || [];
-          const lastItemKeys = Object.keys(lastItem as Record<string, unknown>);
-
-          // Check if lastItem is a pagination marker (next_cursor, error, etc.)
-          const isPaginationItem = lastItemKeys.includes('next_cursor') || lastItemKeys.includes('error');
-
-          // Check if lastItem is an intermediate result container
-          const isIntermediateContainer =
-            lastItemKeys.includes('results') ||
-            lastItemKeys.includes('queryIds') ||
-            lastItemKeys.includes('profile') ||
-            lastItemKeys.includes('ok') ||
-            lastItemKeys.includes('userId') ||
-            lastItemKeys.includes('data');
-
-          // Data item must have >50% of schema fields
-          const matchCount = schemaFields.filter(f => lastItemKeys.includes(f)).length;
-          const isDataItem = schemaFields.length > 0 && matchCount >= schemaFields.length * 0.5;
-
-          if (isPaginationItem && !isIntermediateContainer) {
-            // Last item is pagination marker, collect all preceding data items + pagination
-            // Skip intermediate result containers like {results:...}
-            const dataItems: unknown[] = [];
-            for (let i = 0; i < parsed.length; i++) {
-              const item = parsed[i];
-              if (item && typeof item === 'object') {
-                const itemKeys = Object.keys(item as Record<string, unknown>);
-                // Items with 'results' key are intermediate containers from first evaluate - skip them
-                const itemIsIntermediateContainer = itemKeys.includes('results');
-                // Skip intermediate containers, include data items and pagination markers
-                if (!itemIsIntermediateContainer) {
-                  dataItems.push(item);
-                }
-              }
-            }
-            extractedData = dataItems;
-          } else if (isDataItem && !isIntermediateContainer) {
-            // Array was flattened: [{results:...}, tweet1, tweet2, ...]
-            // Collect all data items from the end of parsed
-            const dataItems: unknown[] = [];
-            for (let i = parsed.length - 1; i >= 0; i--) {
-              const item = parsed[i];
-              if (item && typeof item === 'object') {
-                const itemKeys = Object.keys(item as Record<string, unknown>);
-                const itemMatchCount = schemaFields.filter(f => itemKeys.includes(f)).length;
-                const itemIsPagination = itemKeys.includes('next_cursor') || itemKeys.includes('error');
-                const itemIsIntermediate =
-                  itemKeys.includes('results') ||
-                  itemKeys.includes('queryIds') ||
-                  itemKeys.includes('profile') ||
-                  itemKeys.includes('ok') ||
-                  itemKeys.includes('userId') ||
-                  itemKeys.includes('data');
-                // Stop when we hit an intermediate result object
-                if (itemIsIntermediate && !itemIsPagination) {
-                  break;
-                }
-                // Include data items and pagination markers
-                if (itemMatchCount >= schemaFields.length * 0.5 || itemIsPagination) {
-                  dataItems.unshift(item);
-                } else {
-                  break;
-                }
-              } else {
-                break;
-              }
-            }
-            extractedData = dataItems.length > 0 ? dataItems : [lastItem];
-          } else if (isIntermediateContainer) {
-            // Last item is intermediate result (e.g., {profile: ...}, {results: ...})
-            // Extract data from the container if possible
-            const container = lastItem as Record<string, unknown>;
-            if (container.profile) {
-              extractedData = [container.profile];
-            } else if (container.results && Array.isArray(container.results)) {
-              extractedData = container.results;
-            } else {
-              extractedData = [lastItem];
-            }
-          } else {
-            // Last item is single data result
-            extractedData = [lastItem];
-          }
-        } else {
-          extractedData = [lastItem];
-        }
-      } else {
-        // Otherwise use all parsed data
-        extractedData = parsed;
+    // extractData is the output result and always an array
+    // If parsed has extractData key, that IS the output
+    if (parsed && typeof parsed === 'object' && 'extractData' in parsed) {
+      const container = parsed as Record<string, unknown>;
+      if (Array.isArray(container.extractData)) {
+        extractedData = container.extractData;
+        console.log(`Extracted ${extractedData.length} items from extractData.`);
       }
-    } else {
-      extractedData = Array.isArray(parsed) ? parsed : [parsed];
+    } else if (Array.isArray(parsed) && parsed.length > 0) {
+      // Fallback: if extractData is not present, use legacy extraction logic
+      console.log(`Parsed ${parsed.length} items from extractData.`);
+      extractedData = parsed;
     }
-
     // Filter by output_schema - only keep defined fields
     if (extractedData && grease.output_schema && grease.output_schema.length > 0) {
       const schemaFields = grease.output_schema.map(f => f.name);

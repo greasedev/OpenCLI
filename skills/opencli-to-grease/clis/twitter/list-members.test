@@ -1,64 +1,72 @@
 {
-  "timestamp": "2026-05-15T09:09:46.249Z",
+  "timestamp": "2026-05-20T07:02:08.164Z",
   "json_file": "./clis/twitter/list-members.json",
   "command": "ListMembers",
   "website": "x.com",
   "params": {
-    "list_id": "1585430245762441216",
-    "limit": 20
+    "list_id": "2055292560806142450",
+    "limit": 100
   },
-  "success": true,
-  "data_count": 21,
+  "success": false,
+  "data_count": 32,
   "sample_data": [
     {
-      "id": "2024518793679294464",
-      "username": "ClaudeDevs",
-      "name": "ClaudeDevs",
-      "bio": "Official updates for developers building with @ClaudeAI",
-      "followers": 416349,
-      "following": 2,
-      "verified": true,
-      "url": "https://x.com/ClaudeDevs"
-    },
-    {
-      "id": "2008226291535970305",
-      "username": "tinkerapi",
-      "name": "Tinker",
-      "bio": "I tink, therefore I am.\nPost-training API by @thinkymachines",
-      "followers": 7577,
-      "following": 1,
-      "verified": true,
-      "url": "https://x.com/tinkerapi"
-    },
-    {
-      "id": "1945021453617057792",
-      "username": "jon_lee0",
-      "name": "Jonathan Lee",
-      "bio": "research @GoogleDeepMind. co-developed gemini deep think. co-led model training for IMO 🥇 |  prev: RL PhD at @StanfordAILab",
-      "followers": 923,
-      "following": 141,
+      "id": "1897259968958730240",
+      "username": "ManusAI",
+      "name": "Manus",
+      "bio": "Manus from @Meta is the general AI agent that bridges minds and actions: it doesn't just think, it delivers results. \nTelegram: https://t.co/kdHdNxZ6xF",
+      "followers": 248548,
+      "following": 29,
       "verified": false,
-      "url": "https://x.com/jon_lee0"
+      "url": "https://x.com/ManusAI"
     },
     {
-      "id": "1933194590171049984",
-      "username": "Linatawfik9",
-      "name": "Linatawfik",
-      "bio": "",
-      "followers": 1296,
-      "following": 23,
-      "verified": false,
-      "url": "https://x.com/Linatawfik9"
-    },
-    {
-      "id": "1931962509596246016",
-      "username": "ZhihuFrontier",
-      "name": "Zhihu Frontier",
-      "bio": "🚀Bringing China's AI & tech trends, voices and perspectives to the global stage.\n⚡️Powered by 知乎/https://t.co/OkIemRZdcj, China's leading knowledge community.",
-      "followers": 4890,
-      "following": 148,
+      "id": "1875995486110593024",
+      "username": "cline",
+      "name": "Cline",
+      "bio": "The open source coding agent that takes over your editor, terminal, and browser to complete work autonomously.",
+      "followers": 61326,
+      "following": 8,
       "verified": true,
-      "url": "https://x.com/ZhihuFrontier"
+      "url": "https://x.com/cline"
+    },
+    {
+      "id": "1639212013602889729",
+      "username": "aisolopreneur",
+      "name": "The AI Solopreneur",
+      "bio": "Helping non-technical people run their business with AI agents.",
+      "followers": 158002,
+      "following": 98,
+      "verified": true,
+      "url": "https://x.com/aisolopreneur"
+    },
+    {
+      "id": "1604278358296055808",
+      "username": "llama_index",
+      "name": "LlamaIndex 🦙",
+      "bio": "The world's best AI Document OCR\n\nLlamaParse: https://t.co/yQGTiRSfFL\nDocs: https://t.co/us6GCS14vD",
+      "followers": 114264,
+      "following": 33,
+      "verified": true,
+      "url": "https://x.com/llama_index"
+    },
+    {
+      "id": "1524901467689078789",
+      "username": "thatroblennon",
+      "name": "Rob Lennon 🗯 | AI Whisperer",
+      "bio": "Product builder. AI orchestrator. Swarm wrangler. On my quest to go from 10X Engineer to 100X Engineer. Oh, and to help shape the future.",
+      "followers": 134440,
+      "following": 1199,
+      "verified": true,
+      "url": "https://x.com/thatroblennon"
     }
-  ]
+  ],
+  "comparison": {
+    "grease_count": 32,
+    "opencli_count": 0,
+    "match": false,
+    "differences": [
+      "OpenCLI failed: Command failed: opencli twitter list-members \"2055292560806142450\" --limit 100 -f json 2>/dev/null\n"
+    ]
+  }
 }

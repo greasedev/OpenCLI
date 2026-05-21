@@ -1,23 +1,27 @@
 {
   "actions": [
     {
+      "action": "track",
+      "argument": {
+        "urlPattern": "ListSearchTimeline",
+        "script": "async (globalVars) => { const response = globalVars.response; const prev = globalVars.extractData || []; const seenIds = prev.filter(l => !l._isTerminated).map(l => l.id); const seen = new Set(seenIds); const results = []; let isTerminated = false; try { const d = JSON.parse(response.body); const insts = d?.data?.search_by_raw_query?.list_search_timeline?.timeline?.instructions || []; for (const inst of insts) { if (inst.type === 'TimelineTerminateTimeline' && inst.direction === 'Bottom') { isTerminated = true; continue; } if (inst.moduleItems) { for (const item of inst.moduleItems) { const list = item?.item?.itemContent?.list; if (!list) continue; const id = list?.id_str || list?.id; if (!id || seen.has(id)) continue; seen.add(id); results.push({ id: String(id), name: list?.name || '', members: list?.member_count || 0, followers: list?.subscriber_count || 0, description: list?.description || '', isPrivate: list?.mode === 'Private', url: 'https://x.com/i/lists/' + id }); } } if (inst.entries) { for (const entry of inst.entries) { const content = entry?.content; if (content?.__typename === 'TimelineTimelineModule') { for (const item of content?.items || []) { const list = item?.item?.itemContent?.list; if (!list) continue; const id = list?.id_str || list?.id; if (!id || seen.has(id)) continue; seen.add(id); results.push({ id: String(id), name: list?.name || '', members: list?.member_count || 0, followers: list?.subscriber_count || 0, description: list?.description || '', isPrivate: list?.mode === 'Private', url: 'https://x.com/i/lists/' + id }); } } } } if (isTerminated) results.push({ _isTerminated: true }); return results; } catch (e) { return []; } }"
+      }
+    },
+    {
       "action": "open",
       "argument": { "url": "https://x.com/i/lists/search?q={{ query }}", "waitUntil": "load" }
     },
     {
-      "action": "wait",
-      "argument": { "timeMs": 3000 }
-    },
-    {
-      "action": "evaluate",
+      "action": "loop",
       "argument": {
-        "script": "async (intermediate) => { const query = '{{ query }}'; const limit = {{ limit }} || 20; const ct0 = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('ct0='))?.split('=')[1]; if (!ct0) return { error: 'Not logged into x.com (no ct0 cookie)' }; const bearer = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA'; const headers = { 'Authorization': 'Bearer ' + decodeURIComponent(bearer), 'X-Csrf-Token': ct0, 'X-Twitter-Auth-Type': 'OAuth2Session', 'X-Twitter-Active-User': 'yes', 'Content-Type': 'application/json' }; const variables = { rawQuery: query, count: limit }; const features = { rweb_video_screen_enabled: false, profile_label_improvements_pcf_label_in_post_enabled: true, rweb_tipjar_consumption_enabled: true, verified_phone_label_enabled: false, creator_subscriptions_tweet_preview_api_enabled: true, responsive_web_graphql_timeline_navigation_enabled: true, responsive_web_graphql_skip_user_profile_image_extensions_enabled: false }; const url = '/i/api/graphql/YTkV8GjFNGfgnhRNP6kDbQ/ListSearchTimeline?variables=' + encodeURIComponent(JSON.stringify(variables)) + '&features=' + encodeURIComponent(JSON.stringify(features)); const resp = await fetch(url, { headers, credentials: 'include' }); if (!resp.ok) return { error: 'HTTP ' + resp.status + ' ' + resp.statusText }; const data = await resp.json(); const instructions = data?.data?.search_by_raw_query?.list_search_timeline?.timeline?.instructions || []; const results = []; const seen = new Set(); for (const inst of instructions) { if (!inst.entries) continue; for (const entry of inst.entries) { const items = entry?.content?.items || []; for (const item of items) { const list = item?.item?.itemContent?.list; if (!list) continue; const id = list?.id_str || list?.id; if (!id || seen.has(id)) continue; seen.add(id); results.push({ id: String(id), name: list?.name || '', members: list?.member_count || 0, followers: list?.subscriber_count || 0, description: list?.description || '', isPrivate: list?.is_private || false, url: 'https://x.com/i/lists/' + id }); if (results.length >= limit) break; } } } return { results }; }"
+        "script": "async (globalVars) => { const limit = {{ limit }} || 20; const maxScrolls = 20; const data = globalVars.extractData || []; if (data.some(d => d._isTerminated)) return false; const results = data.filter(d => !d._isTerminated); if (results.length >= limit) return false; globalVars.loopCount = (globalVars.loopCount || 0) + 1; if (globalVars.loopCount > maxScrolls) return false; window.scrollBy(0, 2000); return {loopCount: globalVars.loopCount}; }",
+        "intervalMs": 2000
       }
     },
     {
       "action": "evaluate",
       "argument": {
-        "script": "async (intermediate) => { if (intermediate.error) return [{ id: '', name: '', members: 0, followers: 0, description: '', isPrivate: false, url: '', error: intermediate.error }]; return intermediate.results || []; }"
+        "script": "(globalVars) => { const limit = {{ limit }} || 20; globalVars.extractData = (globalVars.extractData || []).filter(d => !d._isTerminated).slice(0, limit); return globalVars; }"
       }
     }
   ],
@@ -39,7 +43,7 @@
   ],
   "variables": [
     { "name": "query", "type": "string", "required": true, "help": "Search query", "test": "AI" },
-    { "name": "limit", "type": "int", "default": 20, "help": "Number of results", "test": 5 }
+    { "name": "limit", "type": "int", "default": 20, "help": "Number of results", "test": 200 }
   ],
   "website_domain": "x.com",
   "website_id": "website-x.com"

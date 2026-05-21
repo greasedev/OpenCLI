@@ -1,20 +1,29 @@
 {
-  "timestamp": "2026-05-14T07:46:09.040Z",
+  "timestamp": "2026-05-18T15:38:17.744Z",
   "json_file": "./clis/twitter/list-search.json",
   "command": "ListSearch",
   "website": "x.com",
   "params": {
     "query": "AI",
-    "limit": 5
+    "limit": 200
   },
-  "success": true,
-  "data_count": 5,
+  "success": false,
+  "data_count": 200,
   "sample_data": [
+    {
+      "id": "1566447807782916104",
+      "name": "Airdrop α",
+      "members": 23,
+      "followers": 6232,
+      "description": "",
+      "isPrivate": false,
+      "url": "https://x.com/i/lists/1566447807782916104"
+    },
     {
       "id": "1705702737835643273",
       "name": "AI Education",
       "members": 194,
-      "followers": 9408,
+      "followers": 9447,
       "description": "AI Companies that help educators or students.",
       "isPrivate": false,
       "url": "https://x.com/i/lists/1705702737835643273"
@@ -23,7 +32,7 @@
       "id": "1281464405444583424",
       "name": "AI",
       "members": 54,
-      "followers": 6926,
+      "followers": 6949,
       "description": "AI, ML, DL Updates",
       "isPrivate": false,
       "url": "https://x.com/i/lists/1281464405444583424"
@@ -32,7 +41,7 @@
       "id": "1585430245762441216",
       "name": "AI High Signal",
       "members": 608,
-      "followers": 5382,
+      "followers": 5407,
       "description": "AI twitter accounts that are high signal",
       "isPrivate": false,
       "url": "https://x.com/i/lists/1585430245762441216"
@@ -41,19 +50,18 @@
       "id": "1855589606986805290",
       "name": "AI Cabal",
       "members": 24,
-      "followers": 2816,
+      "followers": 2822,
       "description": "The mfs I trust for ai plays",
       "isPrivate": false,
       "url": "https://x.com/i/lists/1855589606986805290"
-    },
-    {
-      "id": "1340038274379878401",
-      "name": "AI stuff",
-      "members": 51,
-      "followers": 5754,
-      "description": "",
-      "isPrivate": false,
-      "url": "https://x.com/i/lists/1340038274379878401"
     }
-  ]
+  ],
+  "comparison": {
+    "grease_count": 200,
+    "opencli_count": 0,
+    "match": false,
+    "differences": [
+      "OpenCLI failed: Command failed: opencli twitter list-search \"AI\" --limit 200 -f json 2>/dev/null\n"
+    ]
+  }
 }
