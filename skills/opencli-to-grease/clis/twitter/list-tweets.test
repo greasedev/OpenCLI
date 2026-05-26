@@ -1,262 +1,202 @@
 {
-  "timestamp": "2026-05-18T14:53:20.235Z",
-  "json_file": "./clis/twitter/list-tweets.json",
+  "timestamp": "2026-05-26T12:03:50.712Z",
+  "json_file": "clis/twitter/list-tweets.json",
   "command": "ListTweets",
   "website": "x.com",
   "params": {
-    "list_id": "2046117032786378819",
-    "limit": 2000
+    "list_id": "2055292495400210857",
+    "limit": 100
   },
   "success": false,
-  "data_count": 192,
+  "data_count": 100,
   "sample_data": [
     {
-      "id": "2056384750026178796",
+      "id": "2059241070370644278",
       "user": {
-        "id": "44196397",
-        "name": "Elon Musk",
-        "screen_name": "elonmusk",
-        "avatar_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
+        "id": "23511272",
+        "name": "Bojan Tunguz",
+        "screen_name": "tunguz",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1876996209421742080/RostTdnj_normal.jpg",
         "is_verified": true,
-        "description": "https://t.co/dDtDyVssfm",
-        "followers_count": 239905334,
-        "location": ""
+        "description": "Founder and CEO @tabul_ai. Creator of @trainxgb. ML ex Nvidia. Data Scientist. Physicist. Catholic. Husband. Father. Stanford Alum. Memelord. e/xgb. AMDG.",
+        "followers_count": 282350,
+        "location": "United States"
       },
-      "text": "But this book for your friends for the defense of Western Civilization!",
-      "likes": 2729,
-      "retweets": 424,
-      "replies": 575,
-      "quotes": 30,
-      "bookmarks": 168,
-      "created_at": "Mon May 18 14:41:44 +0000 2026",
+      "text": "Too many rules and regulations on the nano scale. Nanocrats are the new Eurocrats.",
+      "likes": 4,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "created_at": "Tue May 26 11:51:44 +0000 2026",
       "lang": "en",
-      "conversation_id": "2056384750026178796",
-      "url": "https://x.com/i/status/2056384750026178796",
+      "conversation_id": "2059241070370644278",
+      "url": "https://x.com/i/status/2059241070370644278",
       "media": [],
       "hashtags": [],
       "mentions": [],
       "urls": []
     },
     {
-      "id": "2056384447075778883",
+      "id": "2059240225725907221",
       "user": {
-        "id": "44196397",
-        "name": "Elon Musk",
-        "screen_name": "elonmusk",
-        "avatar_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
+        "id": "23511272",
+        "name": "Bojan Tunguz",
+        "screen_name": "tunguz",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1876996209421742080/RostTdnj_normal.jpg",
         "is_verified": true,
-        "description": "https://t.co/dDtDyVssfm",
-        "followers_count": 239905334,
-        "location": ""
+        "description": "Founder and CEO @tabul_ai. Creator of @trainxgb. ML ex Nvidia. Data Scientist. Physicist. Catholic. Husband. Father. Stanford Alum. Memelord. e/xgb. AMDG.",
+        "followers_count": 282350,
+        "location": "United States"
       },
-      "text": "RT @KonstantinKisin: Calling everyone you disagree with “far right” has destroyed the meaning of the term.\n\nI’m sick of seeing serious labe…",
-      "likes": 0,
-      "retweets": 370,
+      "text": "This is the next level.",
+      "likes": 7,
+      "retweets": 2,
       "replies": 0,
       "quotes": 0,
-      "bookmarks": 0,
-      "created_at": "Mon May 18 14:40:32 +0000 2026",
+      "bookmarks": 6,
+      "created_at": "Tue May 26 11:48:23 +0000 2026",
       "lang": "en",
-      "conversation_id": "2056384447075778883",
-      "url": "https://x.com/i/status/2056384447075778883",
-      "media": [],
-      "hashtags": [],
-      "mentions": [
-        {
-          "id": "1495726466",
-          "name": "Konstantin Kisin",
-          "screen_name": "KonstantinKisin"
-        }
-      ],
-      "urls": [],
-      "is_retweet": true,
-      "retweeted_tweet": {
-        "id": "2056372617536242075",
-        "user": {
-          "id": "1495726466",
-          "name": "Konstantin Kisin",
-          "screen_name": "KonstantinKisin",
-          "avatar_url": "https://pbs.twimg.com/profile_images/1940339351247851520/Yb99yAbt_normal.jpg",
-          "is_verified": true,
-          "description": "Politically Non-Binary Satirist\n\nPodcast: @triggerpod\n\nSpeaking: rafe.fletcher@cwgspeakers.com\n\nMedia: info@triggerpod.co.uk\n\nBook: https://t.co/GgTCJ7iPE8",
-          "followers_count": 782094,
-          "location": "London, England"
-        },
-        "text": "Calling everyone you disagree with “far right” has destroyed the meaning of the term.\n\nI’m sick of seeing serious labels abused to smear ordinary people with legitimate concerns.\n\nIn 2015, before Brexit, over 50% of the country was concerned about immigration. Does that make half the country “far right”?\n\nThrowing these labels around is reckless, dishonest, and damaging to public debate.",
-        "likes": 2255,
-        "retweets": 370,
-        "replies": 179,
-        "quotes": 16,
-        "bookmarks": 92,
-        "created_at": "Mon May 18 13:53:32 +0000 2026",
-        "lang": "en",
-        "conversation_id": "2056372617536242075",
-        "url": "https://x.com/i/status/2056372617536242075",
-        "media": [
-          {
-            "type": "video",
-            "url": "https://pbs.twimg.com/amplify_video_thumb/2056372397855436800/img/sJ_V93dK0oIBdBMr.jpg",
-            "width": 1920,
-            "height": 1080,
-            "duration_ms": 59433,
-            "video_url": "https://video.twimg.com/amplify_video/2056372397855436800/vid/avc1/1920x1080/NvHNDoRcSgXlkTNV.mp4?tag=27",
-            "bitrate": 10368000
-          }
-        ],
-        "hashtags": [],
-        "mentions": [],
-        "urls": []
-      }
-    },
-    {
-      "id": "2056384365144183261",
-      "user": {
-        "id": "44196397",
-        "name": "Elon Musk",
-        "screen_name": "elonmusk",
-        "avatar_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
-        "is_verified": true,
-        "description": "https://t.co/dDtDyVssfm",
-        "followers_count": 239905334,
-        "location": ""
-      },
-      "text": "The murderous lunatic left",
-      "likes": 5005,
-      "retweets": 589,
-      "replies": 564,
-      "quotes": 18,
-      "bookmarks": 131,
-      "created_at": "Mon May 18 14:40:13 +0000 2026",
-      "lang": "en",
-      "conversation_id": "2056384365144183261",
-      "url": "https://x.com/i/status/2056384365144183261",
+      "conversation_id": "2059240225725907221",
+      "url": "https://x.com/i/status/2059240225725907221",
       "media": [],
       "hashtags": [],
       "mentions": [],
       "urls": []
     },
     {
-      "id": "2056384024537370717",
+      "id": "2059239812259803634",
       "user": {
-        "id": "44196397",
-        "name": "Elon Musk",
-        "screen_name": "elonmusk",
-        "avatar_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
+        "id": "23511272",
+        "name": "Bojan Tunguz",
+        "screen_name": "tunguz",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1876996209421742080/RostTdnj_normal.jpg",
         "is_verified": true,
-        "description": "https://t.co/dDtDyVssfm",
-        "followers_count": 239905334,
-        "location": ""
+        "description": "Founder and CEO @tabul_ai. Creator of @trainxgb. ML ex Nvidia. Data Scientist. Physicist. Catholic. Husband. Father. Stanford Alum. Memelord. e/xgb. AMDG.",
+        "followers_count": 282350,
+        "location": "United States"
       },
-      "text": "RT @theskory: Yeah, /implement is easily my #1 skill.\nIt’s not just the implement → review → fix loop that gives way better output — it als…",
-      "likes": 0,
-      "retweets": 59,
+      "text": "As I was saying. Therapeuticals that are already in the pipeline are nothing short of miracles. AI will turbocharge this by several orders of magnitude.",
+      "likes": 4,
+      "retweets": 0,
       "replies": 0,
       "quotes": 0,
-      "bookmarks": 0,
-      "created_at": "Mon May 18 14:38:51 +0000 2026",
+      "bookmarks": 1,
+      "created_at": "Tue May 26 11:46:44 +0000 2026",
       "lang": "en",
-      "conversation_id": "2056384024537370717",
-      "url": "https://x.com/i/status/2056384024537370717",
+      "conversation_id": "2059239812259803634",
+      "url": "https://x.com/i/status/2059239812259803634",
       "media": [],
       "hashtags": [],
-      "mentions": [
-        {
-          "id": "1394449160",
-          "name": "Boris Skorobogaty",
-          "screen_name": "theskory"
-        }
-      ],
-      "urls": [],
-      "is_retweet": true,
-      "retweeted_tweet": {
-        "id": "2056326076175954165",
-        "user": {
-          "id": "1394449160",
-          "name": "Boris Skorobogaty",
-          "screen_name": "theskory",
-          "avatar_url": "https://pbs.twimg.com/profile_images/1984792473575575552/iKBgH708_normal.jpg",
-          "is_verified": true,
-          "description": "Cooking at @xAI",
-          "followers_count": 314,
-          "location": "London, England"
-        },
-        "text": "Yeah, /implement is easily my #1 skill.\nIt’s not just the implement → review → fix loop that gives way better output — it also has a built-in memory system.\nAfter each task, the orchestrator summarises the issues that were fixed, saves them to a persistent file of “most common problems,” and on the next run injects that knowledge into the implementer + reviewer prompts so they avoid repeating the same mistakes.",
-        "likes": 313,
-        "retweets": 59,
-        "replies": 83,
-        "quotes": 1,
-        "bookmarks": 41,
-        "created_at": "Mon May 18 10:48:35 +0000 2026",
-        "lang": "en",
-        "conversation_id": "2056326076175954165",
-        "url": "https://x.com/i/status/2056326076175954165",
-        "media": [],
-        "hashtags": [],
-        "mentions": [],
-        "urls": []
-      }
+      "mentions": [],
+      "urls": []
     },
     {
-      "id": "2056309705408926036",
+      "id": "2059237606701801765",
       "user": {
-        "id": "44196397",
-        "name": "Elon Musk",
-        "screen_name": "elonmusk",
-        "avatar_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
+        "id": "23511272",
+        "name": "Bojan Tunguz",
+        "screen_name": "tunguz",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1876996209421742080/RostTdnj_normal.jpg",
         "is_verified": true,
-        "description": "https://t.co/dDtDyVssfm",
-        "followers_count": 239905334,
-        "location": ""
+        "description": "Founder and CEO @tabul_ai. Creator of @trainxgb. ML ex Nvidia. Data Scientist. Physicist. Catholic. Husband. Father. Stanford Alum. Memelord. e/xgb. AMDG.",
+        "followers_count": 282350,
+        "location": "United States"
       },
-      "text": "RT @cb_doge: Grok Summary of Elon Musk’s interview at the Samson International Smart Mobility Summit today.\n\n1. Strong praise for Israel’s…",
+      "text": "What people don’t realize about the recent phenomenal success of the metabolic drugs is that ALL of them were designed/created *pre* the current AI boom. We have not even started to scratch the surface of what is possible with these new tools. But the promises are unbelievable.",
+      "likes": 19,
+      "retweets": 1,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "created_at": "Tue May 26 11:37:58 +0000 2026",
+      "lang": "en",
+      "conversation_id": "2059237606701801765",
+      "url": "https://x.com/i/status/2059237606701801765",
+      "media": [],
+      "hashtags": [],
+      "mentions": [],
+      "urls": []
+    },
+    {
+      "id": "2059231470544163287",
+      "user": {
+        "id": "25401953",
+        "name": "Peter Steinberger 🦞",
+        "screen_name": "steipete",
+        "avatar_url": "https://pbs.twimg.com/profile_images/1131851609774985216/OcsssQ9J_normal.png",
+        "is_verified": true,
+        "description": "Polyagentmorous ClawFather. Came back from retirement to mess with AI and help a lobster take over the world.\n@OpenClaw🦞 + @OpenAI",
+        "followers_count": 528371,
+        "location": "Vienna & London"
+      },
+      "text": "RT @pwk: 𝗢𝗽𝗲𝗻𝗖𝗹𝗮𝘄 𝘃𝘀. 𝗖𝗹𝗮𝘂𝗱𝗲? 𝗧𝗵𝗲 𝗷𝘂𝗿𝘆 𝗶𝘀 𝗼𝘂𝘁!🏛️🥊 \n\nLast night, our 𝗚𝗿𝗮𝗻𝗱 𝗔𝗴𝗲𝗻𝘁𝗶𝗰 𝗙𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸 𝗕𝗮𝘁𝘁𝗹𝗲 𝗠𝗲𝗲𝘁𝘂𝗽 issued the verdict with over 400…",
       "likes": 0,
-      "retweets": 727,
+      "retweets": 1,
       "replies": 0,
       "quotes": 0,
       "bookmarks": 0,
-      "created_at": "Mon May 18 09:43:32 +0000 2026",
+      "created_at": "Tue May 26 11:13:35 +0000 2026",
       "lang": "en",
-      "conversation_id": "2056309705408926036",
-      "url": "https://x.com/i/status/2056309705408926036",
+      "conversation_id": "2059231470544163287",
+      "url": "https://x.com/i/status/2059231470544163287",
       "media": [],
       "hashtags": [],
       "mentions": [
         {
-          "id": "1389913567671975937",
-          "name": "DogeDesigner",
-          "screen_name": "cb_doge"
+          "id": "11585552",
+          "name": "Peter W. Kruger",
+          "screen_name": "pwk"
         }
       ],
       "urls": [],
       "is_retweet": true,
       "retweeted_tweet": {
-        "id": "2056289466483097840",
+        "id": "2059205524646764877",
         "user": {
-          "id": "1389913567671975937",
-          "name": "DogeDesigner",
-          "screen_name": "cb_doge",
-          "avatar_url": "https://pbs.twimg.com/profile_images/1498070100393754625/C2V-fbll_normal.jpg",
+          "id": "11585552",
+          "name": "Peter W. Kruger",
+          "screen_name": "pwk",
+          "avatar_url": "https://pbs.twimg.com/profile_images/1554012910921326592/C2uMzsoJ_normal.jpg",
           "is_verified": true,
-          "description": "",
-          "followers_count": 1878790,
-          "location": ""
+          "description": "25Y in startups and VC. CEO Bot Scanner, SBC FoodTech, eZecute, Agrifood-tech Italia. https://t.co/K7SAx2ZiHx. Physics.\n1/2 Polish, 1/2 S. African, born in Milan, grownup Roman.",
+          "followers_count": 13252,
+          "location": "Rome, Italy"
         },
-        "text": "Grok Summary of Elon Musk’s interview at the Samson International Smart Mobility Summit today.\n\n1. Strong praise for Israel’s innovation edge Elon called out Israel’s outsized impact, saying it “punches way above its weight, probably #1 in the world” in innovation per capita. He expressed clear admiration for the country’s tech ecosystem, especially in AI and mobility.\n\n2. Tesla FSD & unsupervised robotaxis — near-term reality\n•Unsupervised robotaxis are coming soon.\n•Tesla is already running driverless tests in select Texas areas.\n•FSD availability: Elon stated it will roll out in both the US and Israel by the end of 2026.\n•As the AI improves, cars will feel increasingly “alive.”\n•Prediction: In about 10 years, most driving will be AI-handled.\n\n3. Humanoid robots → abundance economy Elon painted a future where humanoid robots (Optimus and others) vastly outnumber humans. This shift, he said, will create massive abundance and could enable ideas like “universal high income.” He framed smart mobility as part of this broader robotics/AI revolution.\n\n4. Starship, multi-planetary life & Neuralink\n•Starship’s rapid reusability is the key unlock for becoming multi-planetary and building cities on Mars.\n•Neuralink was briefly highlighted for restoring function to people with paralysis or vision loss — described in one summary as potentially “Jesus-level” impact.\n•All of these threads (autonomy, robots, space, brain interfaces) connect to one overarching goal: “maximize the probability that civilization has a great future.”\n\n5. Balanced optimism with risk awareness Classic Elon: big-picture excitement tempered by realism. He noted risks (including rogue robots/AI) but emphasized proactive development and deployment as the path forward.",
-        "likes": 3388,
-        "retweets": 727,
-        "replies": 592,
-        "quotes": 46,
-        "bookmarks": 229,
-        "created_at": "Mon May 18 08:23:07 +0000 2026",
+        "text": "𝗢𝗽𝗲𝗻𝗖𝗹𝗮𝘄 𝘃𝘀. 𝗖𝗹𝗮𝘂𝗱𝗲? 𝗧𝗵𝗲 𝗷𝘂𝗿𝘆 𝗶𝘀 𝗼𝘂𝘁!🏛️🥊 \n\nLast night, our 𝗚𝗿𝗮𝗻𝗱 𝗔𝗴𝗲𝗻𝘁𝗶𝗰 𝗙𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸 𝗕𝗮𝘁𝘁𝗹𝗲 𝗠𝗲𝗲𝘁𝘂𝗽 issued the verdict with over 400 votes cast in the room and via the live stream. Participants judged 5 live, zero-BS demos across three ruthless metrics: 𝘾𝙤𝙤𝙡𝙣𝙚𝙨𝙨, 𝙀𝙛𝙛𝙚𝙘𝙩𝙞𝙫𝙚𝙣𝙚𝙨𝙨, and 𝙀𝙛𝙛𝙞𝙘𝙞𝙚𝙣𝙘𝙮.   \n\nHere is the definitive verdict:  \n\n🏆 THE FRAMEWORK CHAMPION: @openclaw   Team OpenClaw took the crown with an overall average of 𝟯.𝟲𝟯, defeating closely @claudeai 𝟯.𝟮𝟱.   \n\nOpenClaw didn't just win the grand total. It swept every single category:    \n\n• 𝘾𝙤𝙤𝙡𝙣𝙚𝙨𝙨: OpenClaw 3.72 vs. Claude 3.09 (+0.63)     \n• 𝙀𝙛𝙛𝙚𝙘𝙩𝙞𝙫𝙚𝙣𝙚𝙨𝙨: OpenClaw 3.57 vs. Claude 3.42 (+0.15)    \n • 𝙀𝙛𝙛𝙞𝙘𝙞𝙚𝙣𝙘𝙮: OpenClaw 3.61 vs. Claude 3.25 (+0.36)    \n\nWhile Claude proved it is highly effective, the developer community clearly favors the infinite scaffolding, adaptability, and true sovereignty of OpenClaw when it comes to building real agentic architecture.  \n\n𝗧𝗛𝗘 𝗨𝗦𝗘 𝗖𝗔𝗦𝗘 𝗖𝗛𝗔𝗠𝗣𝗜𝗢𝗡𝗦 Massive respect to the individual builders who stepped into the arena:   \n\n🥇 1st Place (score: 4.01): @lucaronin and 𝗧𝗼𝗹𝗮𝗿𝗶𝗮 (OpenClaw) absolutely dominated the board with his record breaking agentic knowledgebase system and automated Open Source Review/ticket Management application.\n\n🥈 2nd Place: Marco Paga and Pecus 𝗖𝗵𝗮𝗶𝗻 (Claude) put up an incredible fight for second place with their agentic animal husbandry management platform.\n\n🥉 3rd Place: 𝗔𝗱𝗮𝗺 𝗔𝘇𝘇𝗮𝗺 and 𝗠𝗮𝘇𝘇𝗮 𝗛𝗤 (OpenClaw) secured the podium showcasing his amazing agentic infra spanning 150+ subagents.   A huge thank you to everyone who showed up to vote. \n\nShoutout to my co-hosts @margal96 and @RMagnifico, and to the partners who made this battle possible: @urbeEth, @AISalonAI Rome, #AutoBench, @moveaxlab, @RomaStartup, and @binariof (@Meta).   \n\nThe era of the chatbot is over. The era of agents has just begun. Let’s keep building!\n\n@GCarnovale @marcotrombetti @matteofago @rstagi_ @MGVitagliano @FutureDies @tensorqt @lukaszkaiser",
+        "likes": 18,
+        "retweets": 1,
+        "replies": 7,
+        "quotes": 0,
+        "bookmarks": 13,
+        "created_at": "Tue May 26 09:30:29 +0000 2026",
         "lang": "en",
-        "conversation_id": "2056289466483097840",
-        "url": "https://x.com/i/status/2056289466483097840",
+        "conversation_id": "2059205524646764877",
+        "url": "https://x.com/i/status/2059205524646764877",
         "media": [
           {
             "type": "photo",
-            "url": "https://pbs.twimg.com/media/HIloXh3bYAAotY3.jpg",
-            "width": 1537,
-            "height": 1023
+            "url": "https://pbs.twimg.com/media/HJPEZo6W0AAuQV-.jpg",
+            "width": 2048,
+            "height": 1536
+          },
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HJPEZm9WoAAKvGI.jpg",
+            "width": 2048,
+            "height": 1536
+          },
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HJPEZnCXUAAVjgN.jpg",
+            "width": 1086,
+            "height": 1448
+          },
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HJPEZm8XQAA1fy1.jpg",
+            "width": 768,
+            "height": 1024
           }
         ],
         "hashtags": [],
@@ -266,11 +206,11 @@
     }
   ],
   "comparison": {
-    "grease_count": 192,
+    "grease_count": 100,
     "opencli_count": 0,
     "match": false,
     "differences": [
-      "OpenCLI failed: Command failed: opencli twitter list-tweets \"2046117032786378819\" --limit 2000 -f json 2>/dev/null\n"
+      "OpenCLI failed: Command failed: opencli twitter list-tweets \"2055292495400210857\" --limit 100 -f json 2>/dev/null\n"
     ]
   }
 }

@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-05-12T07:26:24.482Z",
+  "timestamp": "2026-05-21T09:22:50.948Z",
   "json_file": "./clis/twitter/list-remove.json",
   "command": "ListRemove",
   "website": "x.com",
   "params": {
-    "list_id": "2046117032786378819",
-    "username": "elonmusk"
+    "list_id": "2055292495400210857",
+    "username": "jerryjliu0"
   },
   "success": false,
   "data_count": 1,
   "sample_data": [
     {
-      "listId": "2046117032786378819",
-      "username": "elonmusk",
-      "userId": "44196397",
+      "listId": "2055292495400210857",
+      "username": "jerryjliu0",
+      "userId": "369777416",
       "status": "success",
-      "message": "Removed @elonmusk from list 2046117032786378819 (AI Signal)"
+      "message": "Removed @jerryjliu0 from list 2055292495400210857 (AI - Core)"
     }
   ],
   "comparison": {
@@ -23,7 +23,7 @@
     "opencli_count": 0,
     "match": false,
     "differences": [
-      "OpenCLI failed: Command failed: opencli twitter list-remove \"2046117032786378819\" \"elonmusk\"  -f json 2>/dev/null\n"
+      "OpenCLI failed: Command failed: opencli twitter list-remove \"2055292495400210857\" \"jerryjliu0\"  -f json 2>/dev/null\n"
     ]
   }
 }

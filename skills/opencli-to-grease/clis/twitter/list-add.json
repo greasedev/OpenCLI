@@ -62,6 +62,10 @@
       }
     },
     {
+      "action": "wait",
+      "argument": { "timeMs": 3000 }
+    },
+    {
       "action": "evaluate",
       "argument": {
         "script": "async (intermediate) => { if (intermediate.error) return [{ listId: '', username: '', userId: '', status: 'error', message: intermediate.error }]; if (intermediate.noop) return [{ listId: intermediate.listId, username: intermediate.username, userId: '', status: 'noop', message: intermediate.message }]; return [{ listId: intermediate.listId, username: intermediate.username, userId: intermediate.userId || '', status: intermediate.ok ? 'success' : 'failed', message: intermediate.message || '' }]; }"
